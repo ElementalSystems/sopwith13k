@@ -2,18 +2,32 @@ body,html {
   margin:0;
   padding:0;
 }
-div {
+
+#top {
   width: 100vw;
+  height: 100vh;
   margin:0;
   height: 100vh;
-  color: #000;
+  color: #FFF;
   background: #000;
   font-size: 5vmin;
+  overflow: hidden;
+}
+
+#world {
+  width: 100%;
+  height: 100%;
+}
+
+#land {
+  stroke: #FFF;
+  fill: #aaa;
+  stroke-width:10;
 }
 
 svg {
   path {
-    transition: stroke-width 4s, stroke-opacity 4s, fill-opacity 4s;
+    transition: stroke-width 2s, stroke-opacity 2s, fill-opacity 4s;
   }
   .stripes {
     stroke:#6FF;
@@ -25,24 +39,24 @@ svg {
   }
   .bod {
     stroke:#6FF;
-    stroke-width:5;
+    stroke-width:3;
     fill: #099;
     stroke-linejoin: bevel;
   }
   .ibod {
     stroke:#F6F;
-    stroke-width:5;
+    stroke-width:3;
     fill: #909;
   }
   .whl {
     stroke:#FFF;
-    stroke-width:5;
+    stroke-width:3;
     fill: #999;
   }
 }
 
 
-svg.enemy {
+g.enemy {
   .stripes {
     stroke:#F6F;
   }
@@ -61,10 +75,10 @@ svg.enemy {
 
 svg.y84 {
   .stripes {
-    stroke-width:19;
+    stroke-width:9;
   }
   .istripes {
-    stroke-width:19;
+    stroke-width:10;
   }
   .bod {
     stroke-opacity :0;
