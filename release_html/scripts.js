@@ -1,0 +1,1 @@
+function start(){console.log("start up code"),setTimeout(function(){document.getElementById("plane").classList.add("y84")},2e3),setTimeout(function(){document.getElementById("plane").classList.remove("y84")},5e3)}

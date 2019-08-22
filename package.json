@@ -8,10 +8,10 @@
     "grunt-contrib-compress": "^1.4.3",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-sass": "^1.0.0",
-    "grunt-contrib-uglify": "^2.0.0",
-    "grunt-contrib-watch": "^1.0.0",
+    "grunt-contrib-uglify": "^4.0.1",
+    "grunt-contrib-watch": "^1.1.0",
     "grunt-http-server": "^2.0.0",
-    "grunt-open": "^0.2.3"
+    "grunt-open": "^0.2.4"
   },
   "description": "Simple set up for a js13k games entry with mobile boilerplate and  develop and release grunt tasks",
   "main": "Gruntfile.js",

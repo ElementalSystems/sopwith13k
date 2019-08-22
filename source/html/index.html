@@ -1,15 +1,44 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="utf-8">
-<title></title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <template id='plane'>
+    <svg><g>
+      <path d="M 20 10 H 70 L 130 70 H 340 V 130 H 70 L 20 80 Z" class='bod' />
+      <path d="M 20 20 H 80 M 20 40 H 100 M 20 60 H 120 M 20 80 H 340 M 40 100 H 340 M 60 120 H 340" class='stripes' />
+
+      <path d="M 220 160 A 30 30 0 0 0 280 160 A 30 30 0 0 0 220 160" class='whl' />
+
+      <path d="M 250 130 V 190 M 220 160 H 280 M 70 130 V 150" class='stripes' />
+
+      <path d="M 180 50 A 80 15 0 1 1 320 50 Z
+             M 180 110 A 70 15 0 1 0 290 110 Z
+             M 20 90 A 60 15 0 1 1 120 90 Z
+             M 220 50 L 235 110 h5 L 240 50 Z
+             M 260 50 L 265 110 h5 L 280 50 Z" class='ibod' />
+      <path d="M 180 40 H 320 M 180 120 H 290 M 230 40 V 120 M 270 40 V 120 M 20 80 H 120" class='istripes' />
+
+    </g></svg>
+  </template>
 </head>
+
 <body onload='start()'>
-<div>
-  Place your content stuff here I guess...
-</div>
-<script src="scripts.js"></script>
+  <div>
+    <svg width="400" height="200" viewbox="0,0,1600,800" class='y19' id='world'>
+    <defs>
+      <linearGradient id="main">
+        <stop offset="5%"  stop-color="gold" />
+        <stop offset="95%" stop-color="red" />
+      </linearGradient>
+    </defs>
+
+    </svg>
+  </div>
+  <script src="scripts.js"></script>
 </body>
+
 </html>
