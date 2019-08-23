@@ -4,7 +4,8 @@
   "author": "elementalsystems",
   "dependencies": {
     "lodash": "^4.17.15",
-    "mime":  "^2.4.4",
+    "mem": "^5.1.1",
+    "mime": "^2.4.4",
     "open": "^6.4.0"
   },
   "devDependencies": {
