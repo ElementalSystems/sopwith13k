@@ -10,4 +10,20 @@ var _landAlt=
     12, 12, 14, 16, 16, 16, 15, 14, 14, 16, //7
     16, 16, 16, 16, 16, 16, 15, 10, 10,  5, //8
      2,  0,  0,  0,  0,  0,  0,  0,  0,  0, //9
-]
+];
+
+addSoDef({
+  name: 'landb',
+  onCreate: function() {
+    //find the path and rewrite its d setAttribute
+    var p="M 0 3000";
+    for (var i=0;i<100;i+=1) p+=' L '+(200*i)+' '+(100*_landAlt[i]);
+    //var p="M 0 3000 Q 0 50 0 80";
+    //for (var i=0;i<100;i+=1) p+=' T '+(200*i)+' '+(100*_landAlt[i]);
+    p+=" V 3000 Z";
+
+    this.e.querySelector('path').setAttribute('d',p)
+    console.log('reset path!');
+
+  },
+});

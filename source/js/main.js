@@ -7,16 +7,17 @@ function start()
 
 function createLevel()
 {
-  create('plane','main',1800,0);
-  create('plane','main',1800,200);
-  create('plane','enemy',1800,300);
+  create('plane','player',2800,350);
+  create('plane','main',2300,200);
+  create('plane','enemy',3500,600);
+  create('landb','std',0,0);
   setInterval(function() { document.getElementById('world').classList.toggle('y84',kbd(32))},500);
 }
 
-sobdefs={
-  plane: {
-
-  }
+function addSoDef(def)
+{
+  if (!window._sodef) window._sodef={}
+  window._sodef[def.name]=def;
 }
 
 function create(id,cls,x,y)
@@ -30,8 +31,9 @@ function create(id,cls,x,y)
   ret={
     e: e,
   };
-  if (_sodef[id]) Object.assign(ret,_sodef[id])
+
+  if (window._sodef[id]) Object.assign(ret,window._sodef[id]);
+  if (window._sodef[cls]) ret=Object.assign(ret,window._sodef[cls]);
   if (ret.onCreate) ret.onCreate();
   return ret;
-
 }

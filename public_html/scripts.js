@@ -23,10 +23,14 @@ function start() {
 }
 
 function createLevel() {
-    create("plane", "main", 1800, 0), create("plane", "main", 1800, 200), create("plane", "enemy", 1800, 300), 
-    setInterval(function() {
+    create("plane", "player", 2800, 350), create("plane", "main", 2300, 200), create("plane", "enemy", 3500, 600), 
+    create("landb", "std", 0, 0), setInterval(function() {
         document.getElementById("world").classList.toggle("y84", kbd(32));
     }, 500);
+}
+
+function addSoDef(def) {
+    window._sodef || (window._sodef = {}), window._sodef[def.name] = def;
 }
 
 function create(id, cls, x, y) {
@@ -34,11 +38,15 @@ function create(id, cls, x, y) {
     return e.setAttribute("transform", "translate(" + x + "," + y + ")"), e.classList.add(cls), 
     document.getElementById("world").appendChild(e), ret = {
         e: e
-    }, _sodef[id] && Object.assign(ret, _sodef[id]), ret.onCreate && ret.onCreate(), 
-    ret;
+    }, window._sodef[id] && Object.assign(ret, window._sodef[id]), window._sodef[cls] && (ret = Object.assign(ret, window._sodef[cls])), 
+    ret.onCreate && ret.onCreate(), ret;
 }
 
-sobdefs = {
-    plane: {}
-};
+addSoDef({
+    name: "landb",
+    onCreate: function() {
+        for (var p = "M 0 3000", i = 0; i < 100; i += 1) p += " L " + 200 * i + " " + 100 * _landAlt[i];
+        p += " V 3000 Z", this.e.querySelector("path").setAttribute("d", p), console.log("reset path!");
+    }
+});
 //# sourceMappingURL=scripts.js.map
