@@ -30,19 +30,19 @@ module.exports = function(grunt) {
       },
       js: {
         files: ['source/**/*.js'],
-        tasks: ['uglify:dev']
+        tasks: ['terser:dev']
       },
       html: {
         files: ['source/**/*.html'],
-        tasks: ['copy:htmldev']
+        tasks: ['minifyHtml:htmldev']
       }
     },
-    uglify: {
+    terser: {
       dev: {
         options: {
           mangle: false,
+          compress: false,
           sourceMap: true,
-          beautify: true
         },
         files: {
           'public_html/scripts.js': [
@@ -55,7 +55,6 @@ module.exports = function(grunt) {
           mangle: false,
           sourceMap: false,
           compress: true,
-          beautify: false
         },
         files: {
           'release_html/scripts.js': [
@@ -64,7 +63,7 @@ module.exports = function(grunt) {
         }
       }
     },
-    copy: {
+    minifyHtml: {
       htmldev: {
         files: [{
           expand: true,
@@ -117,11 +116,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-terser');
   grunt.loadNpmTasks('grunt-http-server');
   grunt.loadNpmTasks('grunt-open');
   grunt.loadNpmTasks('grunt-contrib-compress');
+  grunt.loadNpmTasks('grunt-minify-html');
 
-  grunt.registerTask('develop', ['sass:dev', 'uglify:dev', 'copy:htmldev', 'http-server:local', 'open', 'watch']);
-  grunt.registerTask('release', ['sass:rel', 'uglify:rel', 'copy:htmlrel','compress:makezip']);
+  grunt.registerTask('develop', ['sass:dev', 'terser:dev', 'minifyHtml:htmldev', 'http-server:local', 'open', 'watch']);
+  grunt.registerTask('release', ['sass:rel', 'terser:rel', 'minifyHtml:htmlrel','compress:makezip']);
 };
