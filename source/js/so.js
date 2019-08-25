@@ -9,9 +9,13 @@ addSoDef({
   name:'so',
   x: -1000,
   y: -1000,
+  w: 100,
+  h: 100,
   rot: 0,
   rdx: 1,
   rdy: 0,
+  pX: function(x,y) { return this.x+this.rdx*x-this.rdy*y},
+  pY: function(x,y) { return this.y+this.rdx*y+this.rdy*x},
   tDirty: true,
   place: function(nx,ny,nr) {
     if (nx!==undefined) this.x=nx;
@@ -25,12 +29,17 @@ addSoDef({
   },
   setT: function() {
     if (!this.tDirty) return;
-    this.e.setAttribute('transform','translate('+this.x+','+this.y+') rotate('+this.rot+')')
+    this.e.setAttribute('transform','translate('+(this.x-this.w/2)+','+(this.y-this.h/2)+') rotate('+this.rot+','+(this.w/2)+','+(this.h/2)+')');
     this.tDirty=false;
   },
-  onCreate: function() {},
-  tick: function(ft,t) {},
-  ftick: function(ft,t) {}
+
+  onCreate: function() {}, //called when object is first built before it is added to the DOM
+  tick: function(ft,t) {}, //called every frame
+  ftick: function(ft,t) {}, //final actions each frame
+  tCol: function(x,y,x2,y2) {  //check if this hits you and where - default uses a cross across the object
+    return li(x,y,x2,y2,this.pX(-this.w/2,-this.h/2),this.pY(-this.w/2,-this.h/2),this.pX(this.w/2,this.h/2),this.pY(this.w/2,this.h/2))||
+           li(x,y,x2,y2,this.pX(-this.w/2,this.h/2),this.pY(-this.w/2,this.h/2),this.pX(this.w/2,-this.h/2),this.pY(this.w/2,-this.h/2))
+  },
 })
 
 function mkSo(id,cls,x,y,r)

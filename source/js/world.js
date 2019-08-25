@@ -10,16 +10,31 @@ function addSo(ty,cls,x,y,r)
 
 function stW()
 {
-  addSo('plane','player',1300,350,0);
-  addSo('plane','enemy',1300,200,5);
-  addSo('plane','enemy',1300,600,-5);
-  addSo('landb','std',0,0);
+  addSo('plane','player',2000,350,0);
+  addSo('plane','enemy',1600,600,0);
+  addSo('plane','enemy',1400,200,0);
+  addSo('landb','std',10000,1000);
   setInterval(function() { document.getElementById('world').classList.toggle('y84',kbd(32))},500);
   requestAnimationFrame(gl);
 }
 
 function lookAtW(x) {
   _wel.setAttribute('viewBox',(x-1000)+',0,20000,2000');
+}
+
+function tColW(ig,x,y,x2,y2)
+{
+  console.log(x,y,x2,y2)
+  for (let i=0;i<_so.length;i+=1)
+  {
+     if (ig===_so[i]) continue; //can't collide with yourself
+     let res=_so[i].tCol(x,y,x2,y2);
+     if (res) {
+       res.o=_so[i];
+       return res;
+     }
+  }
+  return null;
 }
 
 var _st=0;
@@ -29,7 +44,7 @@ function gl(t) {
   if (_st) ft = (t - _st) ;
   if (ft > 100) ft = 100; //we don't believe in longer frames than 1/10 of a second.
   _st = t;
-  console.log('fps: '+(1000/ft).toFixed(0));
+  //console.log('fps: '+(1000/ft).toFixed(0));
   //do the ticks for each object
   _so.forEach((o)=>{
     o.tick(ft,t);
