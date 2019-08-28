@@ -34,6 +34,7 @@ addSoDef({
   },
 
   onCreate: function() {}, //called when object is first built before it is added to the DOM
+  postCreate: function() {}, //called after object is added to the DOM
   tick: function(ft,t) {}, //called every frame
   ftick: function(ft,t) {}, //final actions each frame
   tCol: function(x,y,x2,y2) {  //check if this hits you and where - default uses a cross across the object

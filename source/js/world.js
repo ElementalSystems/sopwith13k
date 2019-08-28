@@ -6,11 +6,23 @@ function addSo(ty,cls,x,y,r)
   let so=mkSo(ty,cls,x,y,r);
   _wel.appendChild(so.e); //add it to the DOM element
   _so.push(so);  //and to the Ob array
+  so.postCreate();
+  return so;
+}
+
+function addSoSet(ty,cls,x,y,r,n)
+{
+  var r=[];
+  for (i=0;i<n;i+=1)
+    r.push(addSo(ty,cls,x,y,r))
+  return r;
 }
 
 function stW()
 {
-  addSo('plane','player',2000,350,0);
+  addSo('plane','player',2500,350,0);
+  addSo('hut','std',4600,1120,0);
+  addSo('tank','std',3300,1150,0);
   addSo('plane','enemy',1600,600,0);
   addSo('plane','enemy',1400,200,0);
   addSo('landb','std',10000,1000);
