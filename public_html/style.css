@@ -23,9 +23,10 @@ body, html {
 
 svg path {
   transition: stroke-width 2s, stroke-opacity 2s, fill-opacity 4s; }
-svg .stripes {
-  stroke: #6FF;
-  stroke-linecap: butt;
+svg .bmain {
+  stroke: #FAA;
+  stroke-linecap: round;
+  stroke-width: 10;
   fill: none; }
 svg .istripes {
   stroke: #F6F;

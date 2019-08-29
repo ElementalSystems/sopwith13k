@@ -29,11 +29,13 @@ svg {
   path {
     transition: stroke-width 2s, stroke-opacity 2s, fill-opacity 4s;
   }
-  .stripes {
-    stroke:#6FF;
-    stroke-linecap: butt;
+  .bmain { //bullet main
+    stroke:#FAA;
+    stroke-linecap: round;
+    stroke-width: 10;
     fill: none;
   }
+
   .istripes {
     stroke:#F6F;
     stroke-linecap: butt;

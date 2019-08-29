@@ -10,22 +10,18 @@ function addSo(ty,cls,x,y,r)
   return so;
 }
 
-function addSoSet(ty,cls,x,y,r,n)
-{
-  var r=[];
-  for (i=0;i<n;i+=1)
-    r.push(addSo(ty,cls,x,y,r))
-  return r;
-}
 
 function stW()
 {
-  addSo('plane','player',2500,350,0);
+  addWS(25,'bullet','weapon');
+  addWS(10,'bomb','weapon');
+  addWS(30,'smoke','weapon');  
+  addSo('landb','std',10000,1000);
+  addSo('plane','player',8200,1350,0);
   addSo('hut','std',4600,1120,0);
   addSo('tank','std',3300,1150,0);
   addSo('plane','enemy',1600,600,0);
   addSo('plane','enemy',1400,200,0);
-  addSo('landb','std',10000,1000);
   setInterval(function() { document.getElementById('world').classList.toggle('y84',kbd(32))},500);
   requestAnimationFrame(gl);
 }
@@ -36,7 +32,6 @@ function lookAtW(x) {
 
 function tColW(ig,x,y,x2,y2)
 {
-  console.log(x,y,x2,y2)
   for (let i=0;i<_so.length;i+=1)
   {
      if (ig===_so[i]) continue; //can't collide with yourself

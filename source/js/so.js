@@ -21,9 +21,9 @@ addSoDef({
     if (nx!==undefined) this.x=nx;
     if (ny!==undefined) this.y=ny;
     if (nr!==undefined) {
-      this.rot=nr;
-      this.rdx=Math.cos(nr*Math.PI/180);
-      this.rdy=Math.sin(nr*Math.PI/180);
+      this.rot=alim(nr);
+      this.rdx=Math.cos(this.rot*Math.PI/180);
+      this.rdy=Math.sin(this.rot*Math.PI/180);
     }
     this.tDirty=true;
   },
@@ -37,6 +37,7 @@ addSoDef({
   postCreate: function() {}, //called after object is added to the DOM
   tick: function(ft,t) {}, //called every frame
   ftick: function(ft,t) {}, //final actions each frame
+  hit: function(ob,col) {}, //called if something hard hits your object
   tCol: function(x,y,x2,y2) {  //check if this hits you and where - default uses a cross across the object
     return li(x,y,x2,y2,this.pX(-this.w/2,-this.h/2),this.pY(-this.w/2,-this.h/2),this.pX(this.w/2,this.h/2),this.pY(this.w/2,this.h/2))||
            li(x,y,x2,y2,this.pX(-this.w/2,this.h/2),this.pY(-this.w/2,this.h/2),this.pX(this.w/2,-this.h/2),this.pY(this.w/2,-this.h/2))
@@ -49,7 +50,11 @@ function mkSo(id,cls,x,y,r)
   var e=df.querySelector('g');
   e.classList.add(cls);
   ret={
-    e: e,
+    e:  e,
+    inG: e.querySelector('g'), //sets the internal group handle if the object has one
+    ix: x, //store initial position
+    iy: y,
+    ir: r,
   };
   Object.assign(ret,window._sodef['so']);
   if (window._sodef[id]) Object.assign(ret,window._sodef[id]);

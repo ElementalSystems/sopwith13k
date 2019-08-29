@@ -23,3 +23,19 @@ function li(p0_x,p0_y, p1_x,p1_y, p2_x, p2_y, p3_x, p3_y)
     }
     return null; // No collision
 }
+
+function rnd(s,e)
+{ return Math.random()*(e-s)+s;}
+
+function alim(a)
+{
+  a=(a+7200)%360;
+  return (a>180)?a-360:a;  
+}
+
+function aDirTo(f,t)
+{
+  f=(f+t)%360;
+  f=(f>180)?f-360:f;
+  return (f>0)?1:-1;
+}

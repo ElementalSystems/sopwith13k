@@ -24,6 +24,7 @@ addSoDef({
   name: 'landb',
   w: 20000,
   h: 2000,
+  isHard: true,
 
   onCreate: function() {
     //find the path and rewrite its d setAttribute
