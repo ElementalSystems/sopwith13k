@@ -3,10 +3,10 @@ addSoDef({
   w: 200,
   h: 100,
   sp: 1, //speed in units / ms
-  spmax: 1.5, //max speed
-  spmin: .7, //min speed
+  spmax: 1.2, //max speed
+  spmin: .5, //min speed
   spdir: 0, //direction to change speed
-  acc: .002, //change to speed per ms
+  acc: .001, //change to speed per ms
   md: 0, //fly mode 0 - home 1 - flying 2 - falling 3 - crashed 4 - stalled
 
   rotsp: .2, //rot change in deg / ms
