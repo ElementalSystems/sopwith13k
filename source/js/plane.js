@@ -13,10 +13,13 @@ addSoDef({
   rotdir: 0, // 0 / +1 / -1 control setAttribute
   trigG: 0, // 0 or 1 to fire the guns
   trigB: 0, // 0 or 1 to fire the bomb
+  trigF: 0, // 0 or 1 to fire the bomb
 
   nextFireG: 0,
   nextFireB: 0,
   nextFireS: 0,
+  nextFireF: 0,
+  isFlip: 0,
 
   tick: function(ft, t) {
     this.tickM[this.md].bind(this)(ft, t);
@@ -37,22 +40,29 @@ addSoDef({
 
   tickM: { //tick function by mode
     0: function(ft, t) {
-      this.pilot();
+      this.pilot(ft,t);
       if ((this.rotdir < 0) || (this.spdir)) // take off!
         this.md = 1;
     },
     1: function(ft, t) { //flying along mate
-      this.pilot();
+      this.pilot(ft,t);
       this.sp = lim(this.sp + this.acc * this.spdir * ft, this.spmin, this.spmax);
-      this.place(this.x + this.rdx * this.sp * ft, this.y + this.rdy * this.sp * ft, this.rot + this.rotsp * this.rotdir * ft);
+      var flipR=this.isFlip?-1:1;
+      this.place(this.x + this.rdx * this.sp * ft, this.y + this.rdy * this.sp * ft, this.rot + this.rotsp * this.rotdir * flipR * ft);
       //do we fire bullets?
       if ((this.trigG) && (t > this.nextFireG)) {
         fireWS('bullet', this.pX(this.w * .6, 0), this.pY(this.w * .6, 0), this.rot, this.sp);
         this.nextFireG = t + 100;
       }
+      //do we fire bombs
       if ((this.trigB) && (t > this.nextFireB)) {
         fireWS('bomb', this.pX(0, this.h, 0), this.pY(0, this.h), this.rot, this.sp);
         this.nextFireB = t + 600;
+      }
+      //do we flip
+      if ((this.trigF) && (t > this.nextFireF)) {
+        this.flip(!this.isFlip);
+        this.nextFireF = t + 500;
       }
 
       //check for stall
@@ -73,6 +83,7 @@ addSoDef({
     3: function(ft, t) { //crashed
       if (t > this.mEnd) {
         this.place(this.ix, this.iy, this.ir);
+        this.flip(0); //put upright
         this.md = 0; //start flying again
       }
     },
@@ -85,5 +96,12 @@ addSoDef({
   hit: function() {
     if (this.md==1)  this.md=2;
   },
-  pilot: function(ft, t) {}
+  pilot: function(ft, t) {},
+  flip: function(to) {
+    this.isFlip=to;
+    if (this.isFlip)
+      this.inG.setAttribute('transform','translate(0,'+(this.h)+') scale(1,-1)');
+    else
+      this.inG.setAttribute('transform','translate(0,0)');
+  }
 });

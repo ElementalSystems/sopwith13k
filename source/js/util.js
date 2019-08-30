@@ -30,12 +30,24 @@ function rnd(s,e)
 function alim(a)
 {
   a=(a+7200)%360;
-  return (a>180)?a-360:a;  
+  return (a>180)?a-360:a;
 }
 
-function aDirTo(f,t)
+function aDist(a,t)
 {
-  f=(f+t)%360;
+  let f=(t-a+720)%360;
   f=(f>180)?f-360:f;
-  return (f>0)?1:-1;
+  return f;
+}
+
+function aDirTo(a,t)
+{  
+  return sgn(aDist(a,t));
+}
+
+function sgn(x) {return (x<0)?-1:1}
+
+function within(x1,y1,x2,y2,r)
+{
+  return ((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2))<r*r;
 }

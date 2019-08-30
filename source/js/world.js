@@ -1,5 +1,6 @@
 var _so=[];
 var _wel=document.getElementById('world');
+var _pp=null;
 
 function addSo(ty,cls,x,y,r)
 {
@@ -15,14 +16,15 @@ function stW()
 {
   addWS(25,'bullet','weapon');
   addWS(10,'bomb','weapon');
-  addWS(30,'smoke','weapon');  
+  addWS(30,'smoke','weapon');
   addSo('landb','std',10000,1000);
-  addSo('plane','player',8200,1350,0);
+  _pp=addSo('plane','player',8200,1350,0);
   addSo('hut','std',4600,1120,0);
   addSo('tank','std',3300,1150,0);
-  addSo('plane','enemy',1600,600,0);
+  addSo('plane','enemy',8600,1350,0);
   addSo('plane','enemy',1400,200,0);
-  setInterval(function() { document.getElementById('world').classList.toggle('y84',kbd(32))},500);
+  addSo('plane','enemy',12000,900,0);
+  //setInterval(function() { document.getElementById('world').classList.toggle('y84',kbd(32))},500);
   requestAnimationFrame(gl);
 }
 
