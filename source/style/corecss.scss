@@ -27,7 +27,7 @@ body,html {
 
 svg {
   path {
-    transition: stroke-width 2s, stroke-opacity 2s, fill-opacity 4s;
+    transition: stroke-width 2s, stroke-opacity 2s, fill-opacity 2s, stroke 1s, fill 1s;
   }
   .bmain { //bullet main
     stroke:#FAA;
@@ -35,59 +35,94 @@ svg {
     stroke-width: 10;
     fill: none;
   }
+  g.stb.ded {
+    opacity: .8;
+  }
 
-  .istripes {
-    stroke:#F6F;
+  .stripes {
+    stroke:#BFF;
     stroke-linecap: butt;
     fill: none;
+    stroke-width: 1.5;
   }
+
+  .istripes {
+    stroke:#F68;
+    stroke-linecap: butt;
+    fill: none;
+    stroke-width: 1.5;
+  }
+
   .bod {
-    stroke:#6FF;
+    stroke:#2FF;
     stroke-width:3;
-    fill: #099;
+    fill: #277;
+    stroke-linejoin: bevel;
+  }
+  .bld {
+    stroke:#2FF;
+    stroke-width:5;
+    fill: #277;
     stroke-linejoin: bevel;
   }
   .ibod {
-    stroke:#F6F;
+    stroke:#D25;
     stroke-width:3;
-    fill: #909;
+    fill: #713;
   }
   .whl {
-    stroke:#FFF;
-    stroke-width:3;
-    fill: #999;
+    stroke:#999;
+    stroke-width:5;
+    fill: #333;
   }
 }
 
 
 g.enemy {
   .stripes {
-    stroke:#F6F;
+    stroke:#9DF;
   }
   .istripes {
-    stroke:#6FF;
+    stroke:#1FB;
+  }
+  .bld {
+    stroke: #F1F;
+    fill:   #727;
   }
   .bod {
-    stroke:#F6F;
-    fill: #909;
+    stroke:#F1F;
+    fill: #727;
   }
+  .bld {
+    stroke:#F1F;
+    fill: #727;
+  }
+
   .ibod {
-    stroke:#6FF;
-    fill: #099;
+    stroke:#6BF;
+    fill: #29B;
   }
 }
 
 svg.y84 {
   .stripes {
+    stroke:#6FF;
     stroke-width:9;
   }
   .istripes {
-    stroke-width:10;
+    stroke:#F6F;
+    stroke-width:9;
   }
   .bod {
     stroke-opacity :0;
     fill-opacity :0;
   }
+  .bld {
+    stroke:#6FF;
+    stroke-width:1;
+    fill: #6FF;
+  }
+
   .ibod {
     stroke-opacity :0;
     fill-opacity :0;
@@ -96,5 +131,18 @@ svg.y84 {
       stroke-opacity :0;
       fill-opacity :0;
   }
+  g.enemy {
+    .stripes {
+      stroke:#F6F;
+    }
+    .istripes {
+      stroke:#6FF;
+    }
+    .bld {
+      stroke:#F6F;
+      stroke-width:1;
+      fill: #F6F;
+    }
 
+  }
 }

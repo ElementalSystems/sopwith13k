@@ -18,18 +18,49 @@ function stW()
   addWS(10,'bomb','weapon');
   addWS(30,'smoke','weapon');
   addSo('landb','std',10000,1000);
-  _pp=addSo('plane','player',8200,1350,0);
-  addSo('hut','std',4600,1120,0);
-  addSo('tank','std',3300,1150,0);
-  addSo('plane','enemy',8600,1350,0);
-  addSo('plane','enemy',1400,200,0);
-  addSo('plane','enemy',12000,900,0);
-  //setInterval(function() { document.getElementById('world').classList.toggle('y84',kbd(32))},500);
+
+  addSo('stb','eblk',1300,500,0);
+  addSo('stb','etank',1850,1400,0);
+  addSo('stb','ehut',2700,1520,0);
+  addSo('stb','ehut',3300,1120,0);
+  addSo('stb','etank',4000,1550,0);
+
+  addSo('stb','ehut',4500,1120,0);
+  addSo('stb','eblk',6000,1120,0);
+
+
+  _pp=addSo('plane','player',8400,1350,0);
+
+  addSo('stb','ftk',8000,1320,0);
+  addSo('stb','fhut',8200,1320,0);
+
+ //display
+// addSo('stb','ehut',8600,1320,0);
+// addSo('stb','eblk',8800,1320,0);
+// addSo('stb','fblk',9000,1320,0);
+
+
+  addSo('stb','ftank',9500,1400,0);
+
+  addSo('stb','etank',10100,1150,0);
+  //addSo('plane','enemy',11100,1150,0);
+  addSo('stb','ehut',11700,1120,0);
+  addSo('stb','etk',11900,1120,0);
+  addSo('stb','eblk',13200,1520,0);
+  addSo('stb','eblk',14300,1250,0);
+  addSo('stb','etank',15000,1560,0);
+  addSo('stb','etank',15850,1560,0);
+  //addSo('plane','enemy',16200,1560,0);
+  addSo('stb','ehut',17000,1520,0);
+  addSo('stb','ehut',17500,920,0);
+  addSo('stb','eblk',18100,120,0);
+
+  setInterval(function() { document.getElementById('world').classList.toggle('y84',kbd(49))},500);
   requestAnimationFrame(gl);
 }
 
 function lookAtW(x) {
-  _wel.setAttribute('viewBox',(x-1000)+',0,20000,2000');
+  _wel.setAttribute('viewBox',(x-2000)+',0,20000,2000');
 }
 
 function tColW(ig,x,y,x2,y2)

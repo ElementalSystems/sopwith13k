@@ -22,53 +22,86 @@ body, html {
   stroke-width: 10; }
 
 svg path {
-  transition: stroke-width 2s, stroke-opacity 2s, fill-opacity 4s; }
+  transition: stroke-width 2s, stroke-opacity 2s, fill-opacity 2s, stroke 1s, fill 1s; }
 svg .bmain {
   stroke: #FAA;
   stroke-linecap: round;
   stroke-width: 10;
   fill: none; }
-svg .istripes {
-  stroke: #F6F;
+svg g.stb.ded {
+  opacity: .8; }
+svg .stripes {
+  stroke: #BFF;
   stroke-linecap: butt;
-  fill: none; }
+  fill: none;
+  stroke-width: 1.5; }
+svg .istripes {
+  stroke: #F68;
+  stroke-linecap: butt;
+  fill: none;
+  stroke-width: 1.5; }
 svg .bod {
-  stroke: #6FF;
+  stroke: #2FF;
   stroke-width: 3;
-  fill: #099;
+  fill: #277;
+  stroke-linejoin: bevel; }
+svg .bld {
+  stroke: #2FF;
+  stroke-width: 5;
+  fill: #277;
   stroke-linejoin: bevel; }
 svg .ibod {
-  stroke: #F6F;
+  stroke: #D25;
   stroke-width: 3;
-  fill: #909; }
+  fill: #713; }
 svg .whl {
-  stroke: #FFF;
-  stroke-width: 3;
-  fill: #999; }
+  stroke: #999;
+  stroke-width: 5;
+  fill: #333; }
 
 g.enemy .stripes {
-  stroke: #F6F; }
+  stroke: #9DF; }
 g.enemy .istripes {
-  stroke: #6FF; }
+  stroke: #1FB; }
+g.enemy .bld {
+  stroke: #F1F;
+  fill: #727; }
 g.enemy .bod {
-  stroke: #F6F;
-  fill: #909; }
+  stroke: #F1F;
+  fill: #727; }
+g.enemy .bld {
+  stroke: #F1F;
+  fill: #727; }
 g.enemy .ibod {
-  stroke: #6FF;
-  fill: #099; }
+  stroke: #6BF;
+  fill: #29B; }
 
 svg.y84 .stripes {
+  stroke: #6FF;
   stroke-width: 9; }
 svg.y84 .istripes {
-  stroke-width: 10; }
+  stroke: #F6F;
+  stroke-width: 9; }
 svg.y84 .bod {
   stroke-opacity: 0;
   fill-opacity: 0; }
+svg.y84 .bld {
+  stroke: #6FF;
+  stroke-width: 1;
+  fill: #6FF; }
 svg.y84 .ibod {
   stroke-opacity: 0;
   fill-opacity: 0; }
 svg.y84 .whl {
   stroke-opacity: 0;
   fill-opacity: 0; }
+svg.y84 g.enemy .stripes {
+  stroke: #F6F; }
+svg.y84 g.enemy .istripes {
+  stroke: #6FF; }
+svg.y84 g.enemy .bld {
+  stroke: #F6F;
+  stroke-width: 1;
+  fill: #F6F; }
 
 /*# sourceMappingURL=style.css.map */

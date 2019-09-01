@@ -17,6 +17,7 @@ addSoDef({
   pX: function(x,y) { return this.x+this.rdx*x-this.rdy*y},
   pY: function(x,y) { return this.y+this.rdx*y+this.rdy*x},
   tDirty: true,
+  dCls: 'sod',
   place: function(nx,ny,nr) {
     if (nx!==undefined) this.x=nx;
     if (ny!==undefined) this.y=ny;
@@ -46,19 +47,26 @@ addSoDef({
 
 function mkSo(id,cls,x,y,r)
 {
-  var df = document.importNode(document.querySelector('#'+id).content, true);
-  var e=df.querySelector('g');
-  e.classList.add(cls);
   ret={
-    e:  e,
-    inG: e.querySelector('g'), //sets the internal group handle if the object has one
+    template: id,
     ix: x, //store initial position
     iy: y,
     ir: r,
   };
   Object.assign(ret,window._sodef['so']);
-  if (window._sodef[id]) Object.assign(ret,window._sodef[id]);
-  if (window._sodef[cls]) ret=Object.assign(ret,window._sodef[cls]);
+  Object.assign(ret,window._sodef[id]);
+  Object.assign(ret,window._sodef[cls]);
+
+  var df = document.importNode(document.querySelector('#'+ret.template).content, true);
+  var e=df.querySelector('g');
+  e.classList.add(id);
+  e.classList.add(cls);
+  e.classList.add(ret.template);
+  e.classList.add(ret.dCls);
+
+
+  ret.e=e;
+  ret.inG=e.querySelector('g'), //sets the internal group handle if the object has one
   ret.onCreate();
   ret.place(x,y,r);
   return ret;

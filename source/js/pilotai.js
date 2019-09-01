@@ -8,6 +8,7 @@ addSoDef({
   chooseAction: function()
   {
      if (this.md==0) {//we're landed so take off
+
        this.rotdir=-1;
        this.spdir=1;
        this.aTime=rnd(200,300);

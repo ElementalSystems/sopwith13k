@@ -20,6 +20,7 @@ addSoDef({
   nextFireS: 0,
   nextFireF: 0,
   isFlip: 0,
+  flipR: 1,
 
   tick: function(ft, t) {
     this.tickM[this.md].bind(this)(ft, t);
@@ -47,8 +48,7 @@ addSoDef({
     1: function(ft, t) { //flying along mate
       this.pilot(ft,t);
       this.sp = lim(this.sp + this.acc * this.spdir * ft, this.spmin, this.spmax);
-      var flipR=this.isFlip?-1:1;
-      this.place(this.x + this.rdx * this.sp * ft, this.y + this.rdy * this.sp * ft, this.rot + this.rotsp * this.rotdir * flipR * ft);
+      this.place(this.x + this.rdx * this.sp * ft, this.y + this.rdy * this.sp * ft, this.rot + this.rotsp * this.rotdir * this.flipR * ft);
       //do we fire bullets?
       if ((this.trigG) && (t > this.nextFireG)) {
         fireWS('bullet', this.pX(this.w * .6, 0), this.pY(this.w * .6, 0), this.rot, this.sp);
@@ -56,7 +56,7 @@ addSoDef({
       }
       //do we fire bombs
       if ((this.trigB) && (t > this.nextFireB)) {
-        fireWS('bomb', this.pX(0, this.h, 0), this.pY(0, this.h), this.rot, this.sp);
+        fireWS('bomb', this.pX(0, this.h*this.flipR, 0), this.pY(0, this.h*this.flipR), this.rot, this.sp);
         this.nextFireB = t + 600;
       }
       //do we flip
@@ -99,6 +99,7 @@ addSoDef({
   pilot: function(ft, t) {},
   flip: function(to) {
     this.isFlip=to;
+    this.flipR=this.isFlip?-1:1;
     if (this.isFlip)
       this.inG.setAttribute('transform','translate(0,'+(this.h)+') scale(1,-1)');
     else
