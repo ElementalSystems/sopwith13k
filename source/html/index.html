@@ -10,24 +10,24 @@
     <svg>
       <g>
         <g>
-        <path d="M 10 5 H 35 L 65 35 H 170 V 65 H 35 L 10 40 Z" class='bod' />
-        <path d="M 10 10 H 40 M 10 20 H 50 M 10 30 H 60 M 10 40 H 170 M 20 50 H 170 M 30 60 H 160" class='stripes' />
-        <path d="M 110 80 A 15 15 0 0 0 140 80 A 15 15 0 0 0 110 80" class='whl' />
-        <path d="M 125 65 V 95 M 110 80 H 140 M 35 65 V 75" class='stripes' />
-        <path d="M 90 25 A 40 7 0 1 1 160 25 Z
+          <path d="M 10 5 H 35 L 65 35 H 170 V 65 H 35 L 10 40 Z" class='bod' />
+          <path d="M 10 10 H 40 M 10 20 H 50 M 10 30 H 60 M 10 40 H 170 M 20 50 H 170 M 30 60 H 160" class='stripes' />
+          <path d="M 110 80 A 15 15 0 0 0 140 80 A 15 15 0 0 0 110 80" class='whl' />
+          <path d="M 125 65 V 95 M 110 80 H 140 M 35 65 V 75" class='stripes' />
+          <path d="M 90 25 A 40 7 0 1 1 160 25 Z
            M 90 55 A 35 7 0 1 0 145 55 Z
            M 10 45 A 30 7 0 1 1 60 45 Z
            M 110 25 L 117 55 h 3 Lwhite25 Z
            M 130 25 L 133 55 h 2 L 140 24 Z" class='ibod' />
-        <path d="M 90 20 H 155 M 90 60 H 145 M 115 20 V 60 M 135 20 V 60 M 10 40 H 60" class='istripes' />
+          <path d="M 90 20 H 155 M 90 60 H 145 M 115 20 V 60 M 135 20 V 60 M 10 40 H 60" class='istripes' />
     </svg>
   </template>
   <template id='hut'>
     <svg>
       <g>
         <path d="M 20 70 H 180 V 180 H 20 Z M 130 10 H 180 V 40 H 130 Z" class='bld' />
-        <path d="M 130 0 H 140 V 70 H 130 Z M 50 180 V 100 H 150 V 180 Z" class='ibod'/>
-        <path d="M 45 180 V 95 H 155 V 180 M 135 0 V 70" class='istripes'/>
+        <path d="M 130 0 H 140 V 70 H 130 Z M 50 180 V 100 H 150 V 180 Z" class='ibod' />
+        <path d="M 45 180 V 95 H 155 V 180 M 135 0 V 70" class='istripes' />
       </g>
     </svg>
   </template>
@@ -86,7 +86,9 @@
   <template id='landb'>
     <svg>
       <g id='land'>
-        <path d="M 0 3000"/>
+        <path d="M 0 3000" class="l1" />
+        <path d="M 0 3000" class="l2" />
+        <path d="M 0 3000" class="l3" fill="url(#hatch)"/>
       </g>
     </svg>
   </template>
@@ -103,6 +105,12 @@
         <mask id="dedM">
           <path d="M0 200  L 50 100 L 80 150 L130 50 L 150 180 L 180 80 L200 200 Z" fill="white" />
         </mask>
+        <pattern id="hatch" width="20" height="20" patternTransform="rotate(20 0 0)" patternUnits="userSpaceOnUse">
+          <line x1="0" y1="20" x2="20" y2="0" style="stroke:#6F6; stroke-width:5" />
+          <line x1="0" y1="0" x2="0" y2="20" style="stroke:#FFF; stroke-width:5" />
+          <line x1="0" y1="0" x2="20" y2="20" style="stroke:#AFA; stroke-width:5" />
+          <line x1="0" y1="0" x2="10" y2="15" style="stroke:#800; stroke-width:3" />
+        </pattern>
 
       </defs>
     </svg>

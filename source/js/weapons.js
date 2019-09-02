@@ -60,7 +60,7 @@ addSoDef({
   name: 'bomb',
   w: 50,
   h: 50,
-  lifeSpan: 5000,
+  lifeSpan: 10000,
   sp: 0,
   usesp: 1,
   rotsp: 0.02,

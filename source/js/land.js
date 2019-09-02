@@ -27,13 +27,9 @@ addSoDef({
   isHard: true,
 
   onCreate: function() {
-    //find the path and rewrite its d setAttribute
-    var p="M 0 3000";
-    for (var i=0;i<20000;i+=200) p+=' L '+i+' '+getLa(i);
-    //var p="M 0 3000 Q 0 50 0 80";
-    //for (var i=0;i<100;i+=1) p+=' T '+(200*i)+' '+(100*_landAlt[i]);
-    p+=" V 3000 Z";
-    this.e.querySelector('path').setAttribute('d',p);
+    this.e.querySelector('path.l1').setAttribute('d',mkLd(0));
+    this.e.querySelector('path.l2').setAttribute('d',mkLd(1));
+    this.e.querySelector('path.l3').setAttribute('d',mkLd(2));
   },
   tCol: function(x,y,x2,y2) {  //custom collision detection
     if (getLa(x)<y) return { x: x, y: getLa(x)}; //either end too low?
@@ -41,3 +37,22 @@ addSoDef({
     return null;
   },
 });
+
+function mkLd(t){
+  var p="M 0 3000 V 0";
+  var j=200;
+  switch (t) {
+    case 0:
+      for (var i=0;i<20000;i+=20) p+=' h 10 V '+getLa(i)+' h 10';
+      break;
+    case 1:
+      for (var i=0;i<20000;i+=200) p+=' L '+i+' '+getLa(i);
+      break;
+    case 2:
+      for (var i=0;i<20000;i+=j) p+=' S '+(i-j/2)+' '+(getLa(i)+(getLa(i-j)-getLa(i+j))/4)+' '
+                                        +i+' '+getLa(i);
+      break;
+  }
+  p+=" V 3000 Z";
+  return p;
+}

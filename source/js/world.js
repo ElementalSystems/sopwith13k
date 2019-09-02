@@ -43,14 +43,14 @@ function stW()
   addSo('stb','ftank',9500,1400,0);
 
   addSo('stb','etank',10100,1150,0);
-  //addSo('plane','enemy',11100,1150,0);
+  addSo('plane','enemy',11100,1150,0);
   addSo('stb','ehut',11700,1120,0);
   addSo('stb','etk',11900,1120,0);
   addSo('stb','eblk',13200,1520,0);
   addSo('stb','eblk',14300,1250,0);
   addSo('stb','etank',15000,1560,0);
   addSo('stb','etank',15850,1560,0);
-  //addSo('plane','enemy',16200,1560,0);
+  addSo('plane','enemy',16200,1560,0);
   addSo('stb','ehut',17000,1520,0);
   addSo('stb','ehut',17500,920,0);
   addSo('stb','eblk',18100,120,0);
