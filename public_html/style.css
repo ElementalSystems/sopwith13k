@@ -1,4 +1,5 @@
-body, html {
+body,
+html {
   margin: 0;
   padding: 0; }
 
@@ -47,7 +48,7 @@ svg .bmain {
   stroke-width: 10;
   fill: none; }
 svg g.stb.ded {
-  opacity: .8; }
+  opacity: 0.8; }
 svg .stripes {
   stroke: #BFF;
   stroke-linecap: butt;
@@ -76,21 +77,20 @@ svg .whl {
   stroke: #999;
   stroke-width: 5;
   fill: #333; }
-
-g.enemy .stripes {
+svg g.enemy .stripes {
   stroke: #9DF; }
-g.enemy .istripes {
+svg g.enemy .istripes {
   stroke: #1FB; }
-g.enemy .bld {
+svg g.enemy .bld {
   stroke: #F1F;
   fill: #727; }
-g.enemy .bod {
+svg g.enemy .bod {
   stroke: #F1F;
   fill: #727; }
-g.enemy .bld {
+svg g.enemy .bld {
   stroke: #F1F;
   fill: #727; }
-g.enemy .ibod {
+svg g.enemy .ibod {
   stroke: #6BF;
   fill: #29B; }
 
@@ -129,5 +129,44 @@ svg.y84 g.enemy .bld {
   stroke: #F6F;
   stroke-width: 1;
   fill: #F6F; }
+
+svg.y88 .stripes {
+  stroke: #6FF;
+  stroke-width: 5; }
+svg.y88 .istripes {
+  stroke: #F6F;
+  stroke-width: 5; }
+svg.y88 .bod {
+  stroke: none;
+  fill: #0FF; }
+svg.y88 .bld {
+  stroke: none;
+  fill: #0FF; }
+svg.y88 .ibod {
+  stroke: none;
+  fill: #713; }
+svg.y88 #land {
+  stroke: none; }
+svg.y88 #land path.l1 {
+  fill-opacity: 0; }
+svg.y88 #land path.l2 {
+  fill-opacity: 1; }
+svg.y88 #land path.l3 {
+  fill-opacity: 0; }
+svg.y88 .whl {
+  fill-opacity: 0; }
+svg.y88 g.enemy .stripes {
+  stroke: #F6F; }
+svg.y88 g.enemy .istripes {
+  stroke: #6FF; }
+svg.y88 g.enemy .bod {
+  stroke: none;
+  fill: #F0F; }
+svg.y88 g.enemy .bld {
+  stroke: none;
+  fill: #F0F; }
+svg.y88 g.enemy .ibod {
+  stroke: none;
+  fill: #317; }
 
 /*# sourceMappingURL=style.css.map */

@@ -55,7 +55,10 @@ function stW()
   addSo('stb','ehut',17500,920,0);
   addSo('stb','eblk',18100,120,0);
 
-  setInterval(function() { document.getElementById('world').classList.toggle('y84',kbd(49))},500);
+  setInterval(function() {
+       document.getElementById('world').classList.toggle('y84',kbd(49))
+       document.getElementById('world').classList.toggle('y88',kbd(50))
+     } ,500);
   requestAnimationFrame(gl);
 }
 
@@ -69,7 +72,8 @@ function tColW(ig,x,y,x2,y2)
   {
      if (ig===_so[i]) continue; //can't collide with yourself
      let res=_so[i].tCol(x,y,x2,y2);
-     if (res) {
+     if
+     (res) {
        res.o=_so[i];
        return res;
      }
