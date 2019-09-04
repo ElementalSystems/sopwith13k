@@ -17,18 +17,28 @@ html {
   width: 100%;
   height: 100%; }
 
-#land {
-  stroke: none; }
-
-#land path.l1 {
-  fill-opacity: 0;
-  fill: #fff; }
-
-#land path.l2 {
-  fill: #fff; }
-
-#land path.l3 {
-  fill-opacity: 0; }
+#ols {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 12vh;
+  font-family: sans-serif;
+  background: rgba(0, 0, 0, 0.6); }
+  #ols div.ob {
+    border: #888 3px ridge;
+    border-radius: 1rem;
+    color: #FFF;
+    background: rgba(0, 0, 0, 0.3);
+    display: inline-block;
+    padding: .5rem;
+    font-variant: small-caps;
+    text-align: center; }
+    #ols div.ob i {
+      font-style: normal;
+      font-size: 1.5vh; }
+    #ols div.ob #sctxt, #ols div.ob .ot {
+      font-size: 150%; }
 
 svg path {
   transition: stroke-width 2s, stroke-opacity 3s, fill-opacity 3s, stroke 1s, fill 2s; }
