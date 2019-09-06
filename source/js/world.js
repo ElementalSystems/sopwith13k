@@ -1,5 +1,6 @@
 var _so=[];
 var _wel=document.getElementById('world');
+var _swel=document.getElementById('map');
 var _pp=null;
 
 function addSo(ty,cls,x,y,r)
@@ -8,6 +9,12 @@ function addSo(ty,cls,x,y,r)
   _wel.appendChild(so.e); //add it to the DOM element
   _so.push(so);  //and to the Ob array
   so.postCreate();
+
+  //now add the shadow element
+  if (so.shadow) {
+    _swel.appendChild(so.shadow.e); //add it to the DOM element
+  }
+
   return so;
 }
 
@@ -56,8 +63,8 @@ function stW()
   addSo('stb','eblk',18100,120,0);
 
   setInterval(function() {
-       document.getElementById('world').classList.toggle('y84',kbd(49))
-       document.getElementById('world').classList.toggle('y88',kbd(50))
+       document.getElementById('top').classList.toggle('y84',kbd(49))
+       document.getElementById('top').classList.toggle('y88',kbd(50))
      } ,500);
   requestAnimationFrame(gl);
 }
@@ -98,5 +105,8 @@ function gl(t) {
     o.ftick(ft,t);
     o.setT();
   });
+  //update the overlay
+  updateOL();
+
   requestAnimationFrame(gl);
 }

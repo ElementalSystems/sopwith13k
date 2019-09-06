@@ -27,11 +27,13 @@ addSoDef({
       this.rdy=Math.sin(this.rot*Math.PI/180);
     }
     this.tDirty=true;
+    if (this.shadow) this.shadow.place(nx,ny,nr);
   },
   setT: function() {
     if (!this.tDirty) return;
     this.e.setAttribute('transform','translate('+(this.x-this.w/2)+','+(this.y-this.h/2)+') rotate('+this.rot+','+(this.w/2)+','+(this.h/2)+')');
     this.tDirty=false;
+    if (this.shadow) this.shadow.setT();
   },
 
   onCreate: function() {}, //called when object is first built before it is added to the DOM
@@ -47,7 +49,7 @@ addSoDef({
 
 function mkSo(id,cls,x,y,r)
 {
-  ret={
+  let ret={
     template: id,
     ix: x, //store initial position
     iy: y,
@@ -57,17 +59,18 @@ function mkSo(id,cls,x,y,r)
   Object.assign(ret,window._sodef[id]);
   Object.assign(ret,window._sodef[cls]);
 
-  var df = document.importNode(document.querySelector('#'+ret.template).content, true);
-  var e=df.querySelector('g');
+  let df = document.importNode(document.querySelector('#'+ret.template).content, true);
+  let e=df.querySelector('g');
   e.classList.add(id);
   e.classList.add(cls);
   e.classList.add(ret.template);
   e.classList.add(ret.dCls);
 
-
   ret.e=e;
   ret.inG=e.querySelector('g'), //sets the internal group handle if the object has one
   ret.onCreate();
+
+  if (ret.shadowId) ret.shadow=mkSo(ret.shadowId,'shadow',x,y,r);
   ret.place(x,y,r);
   return ret;
 }

@@ -17,7 +17,7 @@
           <path d="M 90 25 A 40 7 0 1 1 160 25 Z
            M 90 55 A 35 7 0 1 0 145 55 Z
            M 10 45 A 30 7 0 1 1 60 45 Z
-           M 110 25 L 117 55 h 3 Lwhite25 Z
+           M 110 25 L 117 55 h 3 L 120 25 Z
            M 130 25 L 133 55 h 2 L 140 24 Z" class='ibod' />
           <path d="M 90 20 H 155 M 90 60 H 145 M 115 20 V 60 M 135 20 V 60 M 10 40 H 60" class='istripes' />
     </svg>
@@ -87,15 +87,30 @@
       <g id='land'>
         <path d="M 0 3000" class="l1" />
         <path d="M 0 3000" class="l2" />
-        <path d="M 0 3000" class="l3" fill="url(#hatch)"/>
+        <path d="M 0 3000" class="l3" fill="url(#hatch)" />
       </g>
     </svg>
   </template>
+  <template id='lmap'>
+    <svg>
+      <g>
+        <path d="M 0 3000" />
+      </g>
+    </svg>
+  </template>
+  <template id='dot'>
+    <svg>
+      <g>
+        <path d="M 0 0 H200 V200 H0 Z" />
+      </g>
+    </svg>
+  </template>
+
 </head>
 
 <body onload='start()'>
   <div tabindex="0" id=top>
-    <svg viewbox="0,0,20000,2000" preserveAspectRatio="xMinYMin slice" class='y19' id='world'>
+    <svg viewbox="0,0,20000,2000" preserveAspectRatio="xMinYMin slice" id='world'>
       <defs>
         <linearGradient id="main">
           <stop offset="5%" stop-color="gold" />
@@ -112,29 +127,38 @@
         </pattern>
       </defs>
     </svg>
+    <div id="ols">
+      <div class="scob ob">
+        <label>Score</label>
+        <div id='sctxt'>200</div>
+      </div>
+      <div class="ob">
+        <label>Lives</label>
+        <div class='ot' id='ltxt'>5</div>
+        <div class='of' id='lf'></div>
+      </div>
+      <div class="ob">
+        <label>Fuel</label>
+        <div  class='ot' id='ftxt'>99</div>
+        <div class='of' id='ff'></div>
+      </div>
+      <div class="ob">
+        <label>Bombs</label>
+        <div class='ot' id='btxt'>5</div>
+        <div class='of' id='bf'></div>
+      </div>
+      <div class="ob">
+        <label>Ammo</label>
+        <div  class='ot' id='gtxt'>99</div>
+        <div class='of' id='gf'></div>
+      </div>
+      <div class="mapob ob" >
+        <svg viewbox="100,0,19000,2500" preserveAspectRatio="xMinYMin meet" id='map'>
+        </svg>
+      </div>
+
+    </div>
   </div>
-  <div id="ols">
-    <div class="ob">
-      <i>Score</i>
-      <div id='sctxt'>200</div>
-    </div>
-    <div class="ob">
-      <i>Lives</i>
-      <div id='lvtxt' class="ot">5</div>
-    </div>
-    <div class="ob">
-      <i>Fuel</i>
-      <div id='ftxt' class="ot">50</div>
-    </div>
-    <div class="ob">
-      <i>Bombs</i>
-      <div id='btxt' class="ot">4</div>
-    </div>
-    <div class="ob">
-      <i>Ammo</i>
-      <div id='atxt' class="ot">80</div>
-    </div>
-  <div>
 
   <script src="scripts.js"></script>
 </body>

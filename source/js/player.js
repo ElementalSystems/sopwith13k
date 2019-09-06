@@ -11,5 +11,9 @@ addSoDef({
     this.trigG=kbd(32);
     this.trigB=kbd(66);
     this.trigF=kbd(190);
-  }
+  },
+  score: 0,
+  lCnt: 5,
+  scv: -200,
+  shadowId: 'fdot',
 });

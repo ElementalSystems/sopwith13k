@@ -36,6 +36,16 @@ addSoDef({
     if (getLa(x2)<y2) return { x: x, y: getLa(x)};
     return null;
   },
+  shadowId: 'lmap',
+});
+
+addSoDef({
+  name: 'lmap',
+  w: 20000,
+  h: 2000,
+  onCreate: function() {
+    this.e.querySelector('path').setAttribute('d',mkLd(1));
+  },
 });
 
 function mkLd(t){

@@ -5,6 +5,7 @@ html {
 }
 
 #top {
+  position: relative;
   width: 100vw;
   height: 100vh;
   margin: 0;
@@ -22,31 +23,95 @@ html {
 
 #ols {
   position: absolute;
-  left:0;
-  right:0;
-  bottom:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   height: 12vh;
   font-family: sans-serif;
-  background:rgba(0,0,0,.6);
+  background: rgba(0,0,0,.6);
+  transition: background 1s;
+
+  div.scob.ob {
+    width: 20vh !important;
+    margin-right: 30vw !important;
+  }
+
+  div.mapob.ob {
+    width: 30vw !important;
+    height:7vh !important;
+    padding:0;
+    svg {
+      g.lmap {
+        fill: #999;
+      }
+      g.dot.ded {
+        fill-opacity:.2;
+      }
+      g.dot {
+        fill: #0FF;
+      }
+      g.dot.enemy {
+        fill: #F0F;
+      }
+    }
+  }
+
   div.ob {
+    position: relative;
     border: #888 3px ridge;
     border-radius: 1rem;
     color: #FFF;
     background: rgba(0,0,0,.3);
     display: inline-block;
-    padding: .5rem;
+    margin: 1vh;
+    padding: 1vh;
+    font-size: 1.5vh;
     font-variant: small-caps;
     text-align: center;
-    i {
-      font-style: normal;
-      font-size:1.5vh;
+    transition: width 1s,border-radius 1s;
+    overflow: hidden;
+    width: 8vh;
+
+    label {
+      z-index: 2;
+      position: relative;
     }
-    #sctxt, .ot {
-      font-size:150%;
+    #sctxt,
+    .ot {
+      padding: 0;
+      margin:0;
+      font-size: 250%;
+      z-index: 2;
+      position: relative;
     }
+
+
+    .of {
+      z-index: 1;
+      position: absolute;
+      top:40%;
+      bottom: 0;
+      left:0;
+      right:0;
+      z-index: 0;
+    }
+
+    #lf {
+      background: #099;
+    }
+    #ff {
+      background: #009;
+    }
+    #bf {
+      background: #909;
+    }
+    #gf {
+      background: #666;
+    }
+
+
 
   }
-
 }
 
 svg {
@@ -155,141 +220,180 @@ svg {
   }
 }
 
-svg.y84 {
-  .stripes {
-    stroke: #6FF;
-    stroke-width: 9;
+div.y84 {
+  #ols {
+    font-family: monospace;
+    background: rgba(0,0,0,1);
+
+    div.ob {
+      border: #000 solid 3px;
+      border-radius: 0;
+      padding: 0;
+      text-transform: uppercase;
+      width: 4px;
+
+      label, .ot {
+        opacity: 0;
+      }
+
+
+    }
   }
 
-  .istripes {
-    stroke: #F6F;
-    stroke-width: 9;
-  }
-
-  .bod {
-    stroke-opacity: 0;
-    fill-opacity: 0;
-  }
-
-  .bld {
-    stroke: #6FF;
-    stroke-width: 1;
-    fill: #6FF;
-  }
-
-  #land {
-    stroke: none;
-  }
-
-  #land path.l1 {
-    fill-opacity: 1;
-  }
-
-  #land path.l2 {
-    fill-opacity: 0;
-  }
-
-  #land path.l3 {
-    fill-opacity: 0;
-  }
-
-  .ibod {
-    stroke-opacity: 0;
-    fill-opacity: 0;
-  }
-
-  .whl {
-    stroke-opacity: 0;
-    fill-opacity: 0;
-  }
-
-  g.enemy {
+  svg {
     .stripes {
-      stroke: #F6F;
+      stroke: #6FF;
+      stroke-width: 9;
     }
 
     .istripes {
-      stroke: #6FF;
+      stroke: #F6F;
+      stroke-width: 9;
+    }
+
+    .bod {
+      stroke-opacity: 0;
+      fill-opacity: 0;
     }
 
     .bld {
-      stroke: #F6F;
+      stroke: #6FF;
       stroke-width: 1;
-      fill: #F6F;
+      fill: #6FF;
+    }
+
+    #land {
+      stroke: none;
+    }
+
+    #land path.l1 {
+      fill-opacity: 1;
+    }
+
+    #land path.l2 {
+      fill-opacity: 0;
+    }
+
+    #land path.l3 {
+      fill-opacity: 0;
+    }
+
+    .ibod {
+      stroke-opacity: 0;
+      fill-opacity: 0;
+    }
+
+    .whl {
+      stroke-opacity: 0;
+      fill-opacity: 0;
+    }
+
+    g.enemy {
+      .stripes {
+        stroke: #F6F;
+      }
+
+      .istripes {
+        stroke: #6FF;
+      }
+
+      .bld {
+        stroke: #F6F;
+        stroke-width: 1;
+        fill: #F6F;
+      }
     }
   }
 }
 
-svg.y88 {
-  .stripes {
-    stroke: #6FF;
-    stroke-width: 5;
+div.y88 {
+  #ols {
+    font-family: monospace;
+
+    background: rgba(0,0,0,1);
+    div.ob {
+      border: #888 3px inset;
+      border-radius: 0;
+      width: 2vh;
+      .ot {
+        font-size: 150%;
+      }
+      label {
+        opacity: 0;
+      }
+    }
+
   }
 
-  .istripes {
-    stroke: #F6F;
-    stroke-width: 5;
-  }
-
-  .bod {
-    stroke: none;
-    fill: #0FF;
-  }
-
-  .bld {
-    stroke: none;
-    fill: #0FF;
-  }
-
-  .ibod {
-    stroke: none;
-    fill: #713;
-  }
-
-  #land {
-    stroke: none;
-  }
-
-  #land path.l1 {
-    fill-opacity: 0;
-  }
-
-  #land path.l2 {
-    fill-opacity: 1;
-  }
-
-  #land path.l3 {
-    fill-opacity: 0;
-  }
-
-
-  .whl {
-    fill-opacity: 0;
-  }
-
-  g.enemy {
+  svg {
     .stripes {
-      stroke: #F6F;
+      stroke: #6FF;
+      stroke-width: 5;
     }
 
     .istripes {
-      stroke: #6FF;
+      stroke: #F6F;
+      stroke-width: 5;
     }
 
     .bod {
       stroke: none;
-      fill: #F0F;
+      fill: #0FF;
     }
 
     .bld {
       stroke: none;
-      fill: #F0F;
+      fill: #0FF;
     }
 
     .ibod {
       stroke: none;
-      fill: #317;
+      fill: #713;
     }
 
+    #land {
+      stroke: none;
+    }
+
+    #land path.l1 {
+      fill-opacity: 0;
+    }
+
+    #land path.l2 {
+      fill-opacity: 1;
+    }
+
+    #land path.l3 {
+      fill-opacity: 0;
+    }
+
+    .whl {
+      fill-opacity: 0;
+    }
+
+    g.enemy {
+      .stripes {
+        stroke: #F6F;
+      }
+
+      .istripes {
+        stroke: #6FF;
+      }
+
+      .bod {
+        stroke: none;
+        fill: #F0F;
+      }
+
+      .bld {
+        stroke: none;
+        fill: #F0F;
+      }
+
+      .ibod {
+        stroke: none;
+        fill: #317;
+      }
+    }
   }
 }

@@ -8,7 +8,10 @@ addSoDef({
   chooseAction: function()
   {
      if (this.md==0) {//we're landed so take off
-
+       if (rnd(0,1000)>_pp.score) { //hesitate a second
+         this.aTime=1000;
+         return;
+       }
        this.rotdir=-1;
        this.spdir=1;
        this.aTime=rnd(200,300);
@@ -16,7 +19,8 @@ addSoDef({
      }
      //otherwise we must be flying
      //If the player is in our firing line then its a good idea to pull the triiger
-     this.trigG=within(this.pX(this.w*4,0),this.pY(this.w*4,0),_pp.x,_pp.y,this.w*2);
+     this.trigG=within(this.pX(this.w*4,0),this.pY(this.w*4,0),_pp.x,_pp.y,this.w*2)&&
+         (rnd(0,2000)<_pp.score);
      //are we heading towards the player
      let xdiff=_pp.x-this.x;
      let ao=89;
@@ -41,4 +45,6 @@ addSoDef({
 
 
    },
+   scv: 200,
+   shadowId: 'edot',
 });

@@ -4,6 +4,7 @@ html {
   padding: 0; }
 
 #top {
+  position: relative;
   width: 100vw;
   height: 100vh;
   margin: 0;
@@ -24,21 +25,64 @@ html {
   bottom: 0;
   height: 12vh;
   font-family: sans-serif;
-  background: rgba(0, 0, 0, 0.6); }
+  background: rgba(0, 0, 0, 0.6);
+  transition: background 1s; }
+  #ols div.scob.ob {
+    width: 20vh !important;
+    margin-right: 30vw !important; }
+  #ols div.mapob.ob {
+    width: 30vw !important;
+    height: 7vh !important;
+    padding: 0; }
+    #ols div.mapob.ob svg g.lmap {
+      fill: #999; }
+    #ols div.mapob.ob svg g.dot.ded {
+      fill-opacity: .2; }
+    #ols div.mapob.ob svg g.dot {
+      fill: #0FF; }
+    #ols div.mapob.ob svg g.dot.enemy {
+      fill: #F0F; }
   #ols div.ob {
+    position: relative;
     border: #888 3px ridge;
     border-radius: 1rem;
     color: #FFF;
     background: rgba(0, 0, 0, 0.3);
     display: inline-block;
-    padding: .5rem;
+    margin: 1vh;
+    padding: 1vh;
+    font-size: 1.5vh;
     font-variant: small-caps;
-    text-align: center; }
-    #ols div.ob i {
-      font-style: normal;
-      font-size: 1.5vh; }
-    #ols div.ob #sctxt, #ols div.ob .ot {
-      font-size: 150%; }
+    text-align: center;
+    transition: width 1s,border-radius 1s;
+    overflow: hidden;
+    width: 8vh; }
+    #ols div.ob label {
+      z-index: 2;
+      position: relative; }
+    #ols div.ob #sctxt,
+    #ols div.ob .ot {
+      padding: 0;
+      margin: 0;
+      font-size: 250%;
+      z-index: 2;
+      position: relative; }
+    #ols div.ob .of {
+      z-index: 1;
+      position: absolute;
+      top: 40%;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 0; }
+    #ols div.ob #lf {
+      background: #099; }
+    #ols div.ob #ff {
+      background: #009; }
+    #ols div.ob #bf {
+      background: #909; }
+    #ols div.ob #gf {
+      background: #666; }
 
 svg path {
   transition: stroke-width 2s, stroke-opacity 3s, fill-opacity 3s, stroke 1s, fill 2s; }
@@ -104,78 +148,100 @@ svg g.enemy .ibod {
   stroke: #6BF;
   fill: #29B; }
 
-svg.y84 .stripes {
+div.y84 #ols {
+  font-family: monospace;
+  background: black; }
+  div.y84 #ols div.ob {
+    border: #000 solid 3px;
+    border-radius: 0;
+    padding: 0;
+    text-transform: uppercase;
+    width: 4px; }
+    div.y84 #ols div.ob label, div.y84 #ols div.ob .ot {
+      opacity: 0; }
+div.y84 svg .stripes {
   stroke: #6FF;
   stroke-width: 9; }
-svg.y84 .istripes {
+div.y84 svg .istripes {
   stroke: #F6F;
   stroke-width: 9; }
-svg.y84 .bod {
+div.y84 svg .bod {
   stroke-opacity: 0;
   fill-opacity: 0; }
-svg.y84 .bld {
+div.y84 svg .bld {
   stroke: #6FF;
   stroke-width: 1;
   fill: #6FF; }
-svg.y84 #land {
+div.y84 svg #land {
   stroke: none; }
-svg.y84 #land path.l1 {
+div.y84 svg #land path.l1 {
   fill-opacity: 1; }
-svg.y84 #land path.l2 {
+div.y84 svg #land path.l2 {
   fill-opacity: 0; }
-svg.y84 #land path.l3 {
+div.y84 svg #land path.l3 {
   fill-opacity: 0; }
-svg.y84 .ibod {
+div.y84 svg .ibod {
   stroke-opacity: 0;
   fill-opacity: 0; }
-svg.y84 .whl {
+div.y84 svg .whl {
   stroke-opacity: 0;
   fill-opacity: 0; }
-svg.y84 g.enemy .stripes {
+div.y84 svg g.enemy .stripes {
   stroke: #F6F; }
-svg.y84 g.enemy .istripes {
+div.y84 svg g.enemy .istripes {
   stroke: #6FF; }
-svg.y84 g.enemy .bld {
+div.y84 svg g.enemy .bld {
   stroke: #F6F;
   stroke-width: 1;
   fill: #F6F; }
 
-svg.y88 .stripes {
+div.y88 #ols {
+  font-family: monospace;
+  background: black; }
+  div.y88 #ols div.ob {
+    border: #888 3px inset;
+    border-radius: 0;
+    width: 2vh; }
+    div.y88 #ols div.ob .ot {
+      font-size: 150%; }
+    div.y88 #ols div.ob label {
+      opacity: 0; }
+div.y88 svg .stripes {
   stroke: #6FF;
   stroke-width: 5; }
-svg.y88 .istripes {
+div.y88 svg .istripes {
   stroke: #F6F;
   stroke-width: 5; }
-svg.y88 .bod {
+div.y88 svg .bod {
   stroke: none;
   fill: #0FF; }
-svg.y88 .bld {
+div.y88 svg .bld {
   stroke: none;
   fill: #0FF; }
-svg.y88 .ibod {
+div.y88 svg .ibod {
   stroke: none;
   fill: #713; }
-svg.y88 #land {
+div.y88 svg #land {
   stroke: none; }
-svg.y88 #land path.l1 {
+div.y88 svg #land path.l1 {
   fill-opacity: 0; }
-svg.y88 #land path.l2 {
+div.y88 svg #land path.l2 {
   fill-opacity: 1; }
-svg.y88 #land path.l3 {
+div.y88 svg #land path.l3 {
   fill-opacity: 0; }
-svg.y88 .whl {
+div.y88 svg .whl {
   fill-opacity: 0; }
-svg.y88 g.enemy .stripes {
+div.y88 svg g.enemy .stripes {
   stroke: #F6F; }
-svg.y88 g.enemy .istripes {
+div.y88 svg g.enemy .istripes {
   stroke: #6FF; }
-svg.y88 g.enemy .bod {
+div.y88 svg g.enemy .bod {
   stroke: none;
   fill: #F0F; }
-svg.y88 g.enemy .bld {
+div.y88 svg g.enemy .bld {
   stroke: none;
   fill: #F0F; }
-svg.y88 g.enemy .ibod {
+div.y88 svg g.enemy .ibod {
   stroke: none;
   fill: #317; }
 

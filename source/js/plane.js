@@ -19,8 +19,14 @@ addSoDef({
   nextFireB: 0,
   nextFireS: 0,
   nextFireF: 0,
+  nextLand: 0,
   isFlip: 0,
   flipR: 1,
+
+  bCnt: 5,
+  gCnt: 99,
+  fCnt: 99,
+  lCnt: 99,
 
   tick: function(ft, t) {
     this.tickM[this.md].bind(this)(ft, t);
@@ -42,21 +48,32 @@ addSoDef({
   tickM: { //tick function by mode
     0: function(ft, t) {
       this.pilot(ft,t);
-      if ((this.rotdir < 0) || (this.spdir)) // take off!
+      this.bCnt=5;
+      this.fCnt=this.gCnt=99;
+      if ((this.rotdir < 0) || (this.spdir)) {// take off!
         this.md = 1;
+        this.nextLand=t+3000;
+      }
     },
     1: function(ft, t) { //flying along mate
       this.pilot(ft,t);
       this.sp = lim(this.sp + this.acc * this.spdir * ft, this.spmin, this.spmax);
       this.place(this.x + this.rdx * this.sp * ft, this.y + this.rdy * this.sp * ft, this.rot + this.rotsp * this.rotdir * this.flipR * ft);
+      //are we out of fuel?
+      this.fCnt-=this.sp*2*ft/1000;
+      if (this.fCnt<0) {
+        this.md=2;
+      }
       //do we fire bullets?
-      if ((this.trigG) && (t > this.nextFireG)) {
+      if ((this.trigG) && (this.gCnt>0)&&(t > this.nextFireG)) {
         fireWS('bullet', this.pX(this.w * .6, 0), this.pY(this.w * .6, 0), this.rot, this.sp);
+        this.gCnt-=1;
         this.nextFireG = t + 100;
       }
       //do we fire bombs
-      if ((this.trigB) && (t > this.nextFireB)) {
+      if ((this.trigB) && (t > this.nextFireB)&& (this.bCnt>0)) {
         fireWS('bomb', this.pX(0, this.h*this.flipR, 0), this.pY(0, this.h*this.flipR), this.rot, this.sp);
+        this.bCnt-=1;
         this.nextFireB = t + 600;
       }
       //do we flip
@@ -70,7 +87,12 @@ addSoDef({
         this.md = 4;
         this.mEnd = t + rnd(400, 700);
       }
-
+      //maybe we can land?
+      if ((t>this.nextLand)&&within(this.x,this.y,this.ix,this.iy,120)) {
+        this.md=0;
+        this.flip(0); //put upright
+        this.place(this.ix,this.iy,this.ir);
+      }
     },
     2: function(ft, t) { //falling and smoking
       if (t > this.nextFireS) {
@@ -83,6 +105,8 @@ addSoDef({
     3: function(ft, t) { //crashed
       if (t > this.mEnd) {
         this.place(this.ix, this.iy, this.ir);
+        _pp.score+=this.scv;
+        this.lCnt-=1;
         this.flip(0); //put upright
         this.md = 0; //start flying again
       }
