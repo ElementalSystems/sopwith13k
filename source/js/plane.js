@@ -2,7 +2,7 @@ addSoDef({
   name: 'plane',
   w: 200,
   h: 100,
-  sp: 1, //speed in units / ms
+  sp: .8, //speed in units / ms
   spmax: 1.2, //max speed
   spmin: .5, //min speed
   spdir: 0, //direction to change speed
@@ -37,6 +37,9 @@ addSoDef({
         col.o.hit();
         if (col.o.isHard) { //hit the ground
           this.mEnd = t + 1000;
+          _pp.score+=this.scv;
+          this.lCnt-=1;
+          if (!this.lCnt) this.mEnd+=5000;
           this.md = 3;
         } else {
           this.md = 2; //we are falling
@@ -50,6 +53,7 @@ addSoDef({
       this.pilot(ft,t);
       this.bCnt=5;
       this.fCnt=this.gCnt=99;
+      this.sp=.8;
       if ((this.rotdir < 0) || (this.spdir)) {// take off!
         this.md = 1;
         this.nextLand=t+3000;
@@ -105,10 +109,9 @@ addSoDef({
     3: function(ft, t) { //crashed
       if (t > this.mEnd) {
         this.place(this.ix, this.iy, this.ir);
-        _pp.score+=this.scv;
-        this.lCnt-=1;
         this.flip(0); //put upright
         this.md = 0; //start flying again
+        if (_pp.lCnt==0) endG();
       }
     },
     4: function(ft, t) { //Stalled

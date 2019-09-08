@@ -10,7 +10,7 @@ addSoDef({
     this.spdir=(kbd(88)||kbd(65))?1:((kbd(90))?-1:0);
     this.trigG=kbd(32);
     this.trigB=kbd(66);
-    this.trigF=kbd(190);
+    this.trigF=kbd(190)||kbd(40);
   },
   score: 0,
   lCnt: 5,

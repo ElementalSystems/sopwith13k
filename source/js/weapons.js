@@ -63,7 +63,7 @@ addSoDef({
   lifeSpan: 10000,
   sp: 0,
   usesp: 1,
-  rotsp: 0.02,
+  rotsp: 0.03,
   kill: true,
 });
 

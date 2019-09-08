@@ -2,6 +2,7 @@ body,
 html {
   margin: 0;
   padding: 0;
+  font-family: sans-serif;
 }
 
 #top {
@@ -14,6 +15,39 @@ html {
   background: #000;
   font-size: 5vmin;
   overflow: hidden;
+}
+
+#meta {
+  background: #000;
+  position: absolute;
+  top:0;
+  bottom:0;
+  left: 0;
+  right:0;
+  color: #FFF;
+  z-index:100;
+  &.ded {
+    left: -120vw;
+    right: 120vw;
+  }
+  a {
+    border: 1px solid #FFF;
+    display: inline-block;
+    width: 25vw;
+    height: 20vh;
+    margin-left: 6vw;
+    text-decoration: none;
+    color: #FFF;
+    h3 {
+      text-align: center;
+    }
+    span {
+      display: block;
+      padding: 1em;
+      text-align: center;
+    }
+  }
+  transition: left 1s, right 1s;
 }
 
 #world {
@@ -33,9 +67,11 @@ html {
 
   div.scob.ob {
     width: 20vh !important;
-    margin-right: 30vw !important;
   }
-
+  div.otob.ob {
+    width: 50vh !important;
+    font-size: 3vh;
+  }
   div.mapob.ob {
     width: 30vw !important;
     height:7vh !important;

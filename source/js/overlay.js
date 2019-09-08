@@ -17,3 +17,18 @@ function updateOL() //update the figures and stuff on the overlay
    updateOLN('g',_pp.gCnt,100);
    updateOLN('f',_pp.fCnt,100);
 }
+
+var OLT=[
+  "Use [Left Arrow] to take off!",//0
+  "Use [Left] and [Right] arrows to fly the plane!",//1
+  "Use [A] and [Z] to control your speed",//2
+  "[Space Bar] to Fire Guns",//3
+  "[B] to drop a bomb",//4
+  "Use [Down Arrow] to flip your plane.",//5
+
+];
+
+function OLShowT(i)
+{
+   document.getElementById('ottxt').innerHTML=OLT[i];
+}

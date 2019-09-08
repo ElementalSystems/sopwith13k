@@ -108,9 +108,33 @@
 
 </head>
 
-<body onload='start()'>
+<body>
+  <div id="meta">
+    <div>
+      <h1>Sopwith</h1>
+      <h2>Back</h2>
+    </div>
+    <div>
+      <a onclick="start(0)" href='#'>
+        <h3>Sopwith Back</h3>
+        <span>Standard version of the game for Novice Players</span>
+      </a>
+      <a onclick="start(1)" href='#'>
+        <h3>Sopwith Back BRUTAL</h3>
+        <span>Ace pilots, no mercy, good luck</span>
+      </a>
+      <a onclick="start(2)" href='#'>
+        <h3>Sopwith 1984</h3>
+        <span>A near clone of the original 1984 version; brutal and
+          fast without any fancy graphics.</span>
+      </a>
+    </div>
+
+  </div>
   <div tabindex="0" id=top>
     <svg viewbox="0,0,20000,2000" preserveAspectRatio="xMinYMin slice" id='world'>
+    </svg>
+    <svg>
       <defs>
         <linearGradient id="main">
           <stop offset="5%" stop-color="gold" />
@@ -132,6 +156,8 @@
         <label>Score</label>
         <div id='sctxt'>200</div>
       </div>
+      <div class="otob ob" id='ottxt'>        
+      </div>
       <div class="ob">
         <label>Lives</label>
         <div class='ot' id='ltxt'>5</div>
@@ -139,7 +165,7 @@
       </div>
       <div class="ob">
         <label>Fuel</label>
-        <div  class='ot' id='ftxt'>99</div>
+        <div class='ot' id='ftxt'>99</div>
         <div class='of' id='ff'></div>
       </div>
       <div class="ob">
@@ -149,14 +175,13 @@
       </div>
       <div class="ob">
         <label>Ammo</label>
-        <div  class='ot' id='gtxt'>99</div>
+        <div class='ot' id='gtxt'>99</div>
         <div class='of' id='gf'></div>
       </div>
-      <div class="mapob ob" >
+      <div class="mapob ob">
         <svg viewbox="100,0,19000,2500" preserveAspectRatio="xMinYMin meet" id='map'>
         </svg>
       </div>
-
     </div>
   </div>
 

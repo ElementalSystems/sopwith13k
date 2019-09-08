@@ -1,7 +1,8 @@
 body,
 html {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  font-family: sans-serif; }
 
 #top {
   position: relative;
@@ -13,6 +14,34 @@ html {
   background: #000;
   font-size: 5vmin;
   overflow: hidden; }
+
+#meta {
+  background: #000;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: #FFF;
+  z-index: 100;
+  transition: left 1s, right 1s; }
+  #meta.ded {
+    left: -120vw;
+    right: 120vw; }
+  #meta a {
+    border: 1px solid #FFF;
+    display: inline-block;
+    width: 25vw;
+    height: 20vh;
+    margin-left: 6vw;
+    text-decoration: none;
+    color: #FFF; }
+    #meta a h3 {
+      text-align: center; }
+    #meta a span {
+      display: block;
+      padding: 1em;
+      text-align: center; }
 
 #world {
   width: 100%;
@@ -28,8 +57,10 @@ html {
   background: rgba(0, 0, 0, 0.6);
   transition: background 1s; }
   #ols div.scob.ob {
-    width: 20vh !important;
-    margin-right: 30vw !important; }
+    width: 20vh !important; }
+  #ols div.otob.ob {
+    width: 50vh !important;
+    font-size: 3vh; }
   #ols div.mapob.ob {
     width: 30vw !important;
     height: 7vh !important;
