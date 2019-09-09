@@ -1,3 +1,9 @@
+@keyframes smoothflash {
+  0%   {background-color: #440;}
+  50%  {background-color: #990;}
+  100% {background-color: #440;}
+}
+
 body,
 html {
   margin: 0;
@@ -71,7 +77,9 @@ html {
   div.otob.ob {
     width: 50vh !important;
     font-size: 3vh;
+    animation: smoothflash 3s infinite;
   }
+
   div.mapob.ob {
     width: 30vw !important;
     height:7vh !important;
@@ -107,6 +115,7 @@ html {
     transition: width 1s,border-radius 1s;
     overflow: hidden;
     width: 8vh;
+    height: 7vh;
 
     label {
       z-index: 2;

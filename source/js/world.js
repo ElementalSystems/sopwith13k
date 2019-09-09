@@ -3,11 +3,11 @@ var _wel = document.getElementById('world');
 var _swel = document.getElementById('map');
 var _pp = null;
 var _ended = true;
-
+var forcey=0;
 function addSo(ty, cls, x, y, r) {
   let so = mkSo(ty, cls, x, y, r);
   _wel.appendChild(so.e); //add it to the DOM element
-  _so.push(so); //and to the Ob array
+  _so.unshift(so); //and to the Ob array
   so.postCreate();
 
   //now add the shadow element
@@ -35,14 +35,16 @@ function stW() {
   addSo('stb', 'etank', 1850, 1400, 0);
   addSo('stb', 'ehut', 2700, 1520, 0);
   addSo('stb', 'ehut', 3300, 1120, 0);
-  addSo('stb', 'etank', 4000, 1550, 0);
+  addSo('plane', 'enemy', 3690, 1550, 0);
+
+  addSo('stb', 'etank', 4200, 1500, 0);
+
 
   addSo('stb', 'ehut', 4500, 1120, 0);
   addSo('stb', 'eblk', 6000, 1120, 0);
 
 
   _pp = addSo('plane', 'player', 8400, 1350, 0);
-
   addSo('stb', 'ftk', 8000, 1320, 0);
   addSo('stb', 'fhut', 8200, 1320, 0);
 
@@ -67,10 +69,6 @@ function stW() {
   addSo('stb', 'ehut', 17500, 920, 0);
   addSo('stb', 'eblk', 18100, 120, 0);
 
-  /*setInterval(function() {
-       document.getElementById('top').classList.toggle('y84',kbd(49))
-       document.getElementById('top').classList.toggle('y88',kbd(50))
-     } ,500);*/
   requestAnimationFrame(gl);
 }
 
@@ -106,6 +104,7 @@ function lookAtW(x) {
       else
         nwy = v;
     }
+  if (forcey) nwy=forcey;
   if (nwy != _wy) {
     _wy = nwy;
     var cl = document.getElementById('top').classList;

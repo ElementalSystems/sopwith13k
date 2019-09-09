@@ -1,3 +1,5 @@
+var aiso=0;
+
 addSoDef({
   name: 'enemy',
   aTime: 0,
@@ -8,7 +10,7 @@ addSoDef({
   chooseAction: function()
   {
      if (this.md==0) {//we're landed so take off
-       if (rnd(0,5000)>_pp.score) { //hesitate a second
+       if (rnd(0,5000)>(_pp.score+aiso)) { //hesitate a second
          this.aTime=1000;
          return;
        }
@@ -20,7 +22,7 @@ addSoDef({
      //otherwise we must be flying
      //If the player is in our firing line then its a good idea to pull the triiger
      this.trigG=within(this.pX(this.w*4,0),this.pY(this.w*4,0),_pp.x,_pp.y,this.w*2)&&
-         (rnd(0,5000)<_pp.score);
+         (rnd(0,5000)<(_pp.score+aiso));
      //are we heading towards the player
      let xdiff=_pp.x-this.x;
      let ao=89;

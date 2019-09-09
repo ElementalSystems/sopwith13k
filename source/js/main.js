@@ -1,7 +1,8 @@
 function start(gt)
 {
+  aiso=(gt==0)?0:10000;
+  forcey=(gt==2)?84:0;
   document.getElementById('meta').classList.add('ded');
-  //for real
   attachKb(document.getElementById('top'));
   stW();
 }
