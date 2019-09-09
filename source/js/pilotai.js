@@ -16,7 +16,7 @@ addSoDef({
        }
        this.rotdir=-1;
        this.spdir=1;
-       this.aTime=rnd(200,300);
+       this.aTime=rnd(500,800);
        return;
      }
      //otherwise we must be flying

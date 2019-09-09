@@ -141,6 +141,10 @@ svg .bmain {
   stroke-linecap: round;
   stroke-width: 10;
   fill: none; }
+svg .bsec {
+  stroke: #FF0;
+  stroke-width: 10;
+  fill: none; }
 svg g.stb.ded {
   opacity: 0.8; }
 svg .stripes {
@@ -226,6 +230,11 @@ div.y84 svg .ibod {
 div.y84 svg .whl {
   stroke-opacity: 0;
   fill-opacity: 0; }
+div.y84 svg .bmain {
+  stroke: #0FF;
+  stroke-linecap: butt; }
+div.y84 svg .bsec {
+  stroke: #000; }
 div.y84 svg g.enemy .stripes {
   stroke: #F6F; }
 div.y84 svg g.enemy .istripes {
@@ -271,6 +280,10 @@ div.y88 svg #land path.l3 {
   fill-opacity: 0; }
 div.y88 svg .whl {
   fill-opacity: 0; }
+div.y88 svg .bmain {
+  stroke: #F00; }
+div.y88 svg .bsec {
+  stroke: #700; }
 div.y88 svg g.enemy .stripes {
   stroke: #F6F; }
 div.y88 svg g.enemy .istripes {

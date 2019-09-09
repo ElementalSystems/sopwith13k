@@ -190,6 +190,14 @@ svg {
     fill: none;
   }
 
+  .bsec {
+    //bullet main
+    stroke: #FF0;
+    stroke-width: 10;
+    fill: none;
+  }
+
+
   g.stb.ded {
     opacity: 0.8;
   }
@@ -333,6 +341,17 @@ div.y84 {
       fill-opacity: 0;
     }
 
+    .bmain {
+      //bullet main
+      stroke: #0FF;
+      stroke-linecap: butt;
+    }
+
+    .bsec {
+      stroke: #000;
+    }
+
+
     g.enemy {
       .stripes {
         stroke: #F6F;
@@ -415,6 +434,16 @@ div.y88 {
     .whl {
       fill-opacity: 0;
     }
+
+    .bmain {
+      //bullet main
+      stroke: #F00;
+    }
+
+    .bsec {
+      stroke: #700;
+    }
+
 
     g.enemy {
       .stripes {

@@ -121,7 +121,7 @@ addSoDef({
     },
   },
   hit: function() {
-    if (this.md==1)  this.md=2;
+    if (this.md<=1)  this.md=2;
   },
   pilot: function(ft, t) {},
   flip: function(to) {
