@@ -42,6 +42,7 @@ addSoDef({
   ftick: function(ft,t) {}, //final actions each frame
   hit: function(ob,col) {}, //called if something hard hits your object
   tCol: function(x,y,x2,y2) {  //check if this hits you and where - default uses a cross across the object
+    if (this.ded) return null;
     return li(x,y,x2,y2,this.pX(-this.w/2,-this.h/2),this.pY(-this.w/2,-this.h/2),this.pX(this.w/2,this.h/2),this.pY(this.w/2,this.h/2))||
            li(x,y,x2,y2,this.pX(-this.w/2,this.h/2),this.pY(-this.w/2,this.h/2),this.pX(this.w/2,-this.h/2),this.pY(this.w/2,-this.h/2))
   },

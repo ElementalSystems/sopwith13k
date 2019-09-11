@@ -1,8 +1,25 @@
+
+
 @keyframes smoothflash {
   0%   {background-color: #440;}
   50%  {background-color: #990;}
   100% {background-color: #440;}
 }
+
+@keyframes roughflash {
+  0%   {background-color: #880; }
+  49.9%   {background-color: #880;}
+  50%  {background-color: #FF0;}
+  100% {background-color: #FF0;}
+}
+
+@keyframes textflash {
+  0%   {color: #000;}
+  49.9%   {color: #000;}
+  50%  {color: #0FF;}
+  100% {color: #0FF;}
+}
+
 
 body,
 html {
@@ -10,6 +27,27 @@ html {
   padding: 0;
   font-family: sans-serif;
 }
+
+#gmtxt {
+  position: absolute;
+  text-align: center;
+  padding: 1.1em 1em .5em 1em;
+  font-weight: bold;
+  font-family: monospace;
+  left: 60vw;
+  right: 10vw;
+  top:-4em;
+  font-size: 3vh;
+  background: #444;
+  border: #fff solid 1px;
+  border-radius: 1vw;
+  transition: top 1s;
+}
+
+#gmtxt.active {
+  top:-1em;
+}
+
 
 #top {
   position: relative;
@@ -32,20 +70,57 @@ html {
   right:0;
   color: #FFF;
   z-index:100;
+  #tit {
+    filter: url('#blur');
+    width: 100%;
+    height: 40vh;
+    text {
+      fill: #088;
+      stroke: #0FF;
+      stroke-width: 1;
+      font-size: 10vh;
+      font-family: sans-serif;
+    }
+    text#back {
+      fill: #808;
+      stroke: #F0F;
+      stroke-width: 1;
+      font-size: 6vh;
+      font-family: sans-serif;
+      transform: rotate(-15deg);
+    }
+  }
+
+  pre {
+    display: block;
+    position: absolute;
+    right:0;
+    top:0;
+    margin: 1em;
+    padding: 1em;
+    border: 5px ridge #999;
+    color: #000;
+    background: #999;
+    font-size: 2.5vh;
+  }
+
   &.ded {
     left: -120vw;
     right: 120vw;
   }
   a {
-    border: 1px solid #FFF;
+    border: 3px outset #AAA;
+    border-radius: 1em;
+
     display: inline-block;
     width: 25vw;
-    height: 20vh;
+    height: 25vh;
     margin-left: 6vw;
     text-decoration: none;
     color: #FFF;
     h3 {
       text-align: center;
+      margin: .5em;
     }
     span {
       display: block;
@@ -77,7 +152,12 @@ html {
   div.otob.ob {
     width: 50vh !important;
     font-size: 3vh;
-    animation: smoothflash 3s infinite;
+    opacity: 0;
+  }
+
+  div.otob.ob.flash {
+    animation: smoothflash 1s infinite;
+    opacity: 1;
   }
 
   div.mapob.ob {
@@ -154,8 +234,6 @@ html {
       background: #666;
     }
 
-
-
   }
 }
 
@@ -180,6 +258,9 @@ svg {
 
   #land path.l3 {
     fill-opacity: 1;
+    stroke-width: 5;
+    stroke: #0F0;
+    stroke-dasharray: 5,8,2,6,1,4,3,8
   }
 
   .bmain {
@@ -291,6 +372,11 @@ div.y84 {
 
 
     }
+
+    div.otob.ob.flash {
+      animation: textflash 1s infinite;
+    }
+
   }
 
   svg {
@@ -329,6 +415,7 @@ div.y84 {
 
     #land path.l3 {
       fill-opacity: 0;
+      stroke-opacity: 0;
     }
 
     .ibod {
@@ -348,7 +435,7 @@ div.y84 {
     }
 
     .bsec {
-      stroke: #000;
+      stroke-opacity: 0;
     }
 
 
@@ -385,6 +472,11 @@ div.y88 {
       label {
         opacity: 0;
       }
+    }
+
+    div.otob.ob.flash {
+      animation: roughflash 1s infinite;
+      color: #000;
     }
 
   }
@@ -429,6 +521,7 @@ div.y88 {
 
     #land path.l3 {
       fill-opacity: 0;
+      stroke-opacity: 0;
     }
 
     .whl {

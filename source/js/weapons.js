@@ -37,7 +37,6 @@ addSoDef({
     }
     this.place(this.x + this.rdx * this.sp * ft, this.y + this.rdy * this.sp * ft,this.rot + this.rotsp * aDirTo(this.rot,90) * ft)
     this.life -= ft;
-
     if (this.life <= 0) { //dead now
       this.place(-1000, -1000, 0);
     }
@@ -63,7 +62,18 @@ addSoDef({
   lifeSpan: 10000,
   sp: 0,
   usesp: 1,
-  rotsp: 0.03,
+  rotsp: 0.05,
+  kill: true,
+});
+
+addSoDef({
+  name: 'shrap',
+  w: 15,
+  h: 15,
+  lifeSpan: 600,
+  sp: .3,
+  usesp: 0,
+  rotsp: 0.2,
   kill: true,
 });
 

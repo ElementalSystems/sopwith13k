@@ -29,6 +29,7 @@ function stW() {
   addWS(25, 'bullet', 'weapon');
   addWS(10, 'bomb', 'weapon');
   addWS(30, 'smoke', 'weapon');
+  addWS(10, 'shrap', 'weapon');
   addSo('landb', 'std', 10000, 1000);
 
   addSo('stb', 'eblk', 1300, 500, 0);
@@ -82,12 +83,11 @@ var laa = [3000, 84,
   8420, 92, //array of pairs - look point and world year
   12000, 88,
   15000, 84,
-  8100, 5, //text prpmpts
+  7100, 5, //text prpmpts
   8400, 0, //text prpmpts
   8460, 1,
-  10000, 2,
-  13000, 3,
-  14000, 4,
+  11000, 3,
+  14000, 2,
 ];
 
 
@@ -111,6 +111,14 @@ function lookAtW(x) {
     cl.toggle('y84', _wy == 84);
     cl.toggle('y88', _wy == 88);
     cl.toggle('y92', _wy == 92);
+    switch (_wy) {
+      case 84: document.getElementById('gmtxt').innerHTML="1984: CGA 4 Colours 320 x 200"; break;
+      case 88: document.getElementById('gmtxt').innerHTML="1988: EGA 16 Colours 640 x 350"; break;
+      case 92: document.getElementById('gmtxt').innerHTML="1994: SVGA 256+ Colours 800 x 600"; break;
+    }
+    document.getElementById('gmtxt').classList.toggle('active',true);
+    setTimeout(()=>{document.getElementById('gmtxt').classList.toggle('active',false);},3000);
+
   }
 }
 

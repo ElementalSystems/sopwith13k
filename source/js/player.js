@@ -13,6 +13,7 @@ addSoDef({
     this.trigF=kbd(190)||kbd(40);
   },
   score: 0,
+  vicCnt: 0,
   lCnt: 5,
   scv: -200,
   shadowId: 'fdot',

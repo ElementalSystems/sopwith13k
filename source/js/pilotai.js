@@ -10,8 +10,9 @@ addSoDef({
   chooseAction: function()
   {
      if (this.md==0) {//we're landed so take off
-       if (rnd(0,5000)>(_pp.score+aiso)) { //hesitate a second
-         this.aTime=1000;
+       if (_pp.md==0) return; //we don't take off if he is on the ground
+       if (rnd(0,5000)>(_pp.score+aiso)) { //hesitate 2 seconds  second
+         this.aTime=2000;
          return;
        }
        this.rotdir=-1;
@@ -22,9 +23,10 @@ addSoDef({
      //otherwise we must be flying
      //If the player is in our firing line then its a good idea to pull the triiger
      this.trigG=within(this.pX(this.w*4,0),this.pY(this.w*4,0),_pp.x,_pp.y,this.w*2)&&
-         (rnd(0,5000)<(_pp.score+aiso));
+         (rnd(0,10000)<(_pp.score+aiso));
      //are we heading towards the player
-     let xdiff=_pp.x-this.x;
+     let xp=(_pp.md==1)?_pp.x:this.ix; //we head home or to the player
+     let xdiff=xp-this.x;
      let ao=89;
      if (this.y>1000) ao=80;
      if (this.y<300) ao=100;
@@ -44,7 +46,7 @@ addSoDef({
      }
 
      this.rotdir=this.spdir=0;
-
+     this.aTime=rnd(200,250);
 
    },
    scv: 200,

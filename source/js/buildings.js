@@ -11,6 +11,20 @@ addSoDef({
       if (this.shadow) this.shadow.e.classList.add('ded');
       //add score
       _pp.score+=this.scv;
+      if (this.scv>0) {
+          _pp.vicCnt+=1; //count up to victory
+          if ((_pp.vicCnt==5)||(_pp.vicCnt==12)) {
+            OLShowT(8);
+          }
+          if (_pp.vicCnt==17) {
+            OLShowT(7);
+            setTimeout(endG,5000)
+          }
+      }
+      //shrapnel
+      fireWS('shrap', this.pX(0, -this.h/4), this.pY(0, -this.h/4), rnd(-60,-120), 0);
+      fireWS('shrap', this.pX(0, -this.h/4), this.pY(0, -this.h/4), rnd(-60,-120), 0);
+      fireWS('shrap', this.pX(0, -this.h/4), this.pY(0, -this.h/4), rnd(-60,-120), 0);
     }
   }
 

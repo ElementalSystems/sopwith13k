@@ -37,10 +37,18 @@ addSoDef({
         col.o.hit();
         if (col.o.isHard) { //hit the ground
           this.mEnd = t + 1000;
+          this.ded=true;
           _pp.score+=this.scv;
           this.lCnt-=1;
-          if (!this.lCnt) this.mEnd+=5000;
+          if (this!=_pp) this.mEnd+=5000; //not the player dies for ages
+          if (!this.lCnt) {
+            this.mEnd+=10000;
+            OLShowT(6);
+          }
           this.md = 3;
+          fireWS('shrap', this.pX(0, -this.h), this.pY(0, -this.h), rnd(-60,-120), 0);
+          fireWS('shrap', this.pX(0, -this.h), this.pY(0, -this.h), rnd(-60,-120), 0);
+          fireWS('shrap', this.pX(0, -this.h), this.pY(0, -this.h), rnd(-60,-120), 0);
         } else {
           this.md = 2; //we are falling
         }
@@ -54,6 +62,7 @@ addSoDef({
       this.bCnt=5;
       this.fCnt=this.gCnt=99;
       this.sp=.8;
+      this.ded=false;
       if ((this.rotdir < 0) || (this.spdir)) {// take off!
         this.md = 1;
         this.nextLand=t+3000;
@@ -100,7 +109,7 @@ addSoDef({
     },
     2: function(ft, t) { //falling and smoking
       if (t > this.nextFireS) {
-        fireWS('smoke', this.pX(-this.w * .6, 0), this.pY(-this.w * .6, 0), this.rot, this.sp);
+        fireWS('smoke', this.pX(-this.w * .2, 0), this.pY(-this.w * .2, 0), this.rot, this.sp);
         this.nextFireS = t + 100;
       }
       this.rotdir = .1;
@@ -111,7 +120,9 @@ addSoDef({
         this.place(this.ix, this.iy, this.ir);
         this.flip(0); //put upright
         this.md = 0; //start flying again
-        if (_pp.lCnt==0) endG();
+        if (_pp.lCnt==0) {
+          endG();
+        }
       }
     },
     4: function(ft, t) { //Stalled

@@ -67,21 +67,32 @@
         <path d="M 0 0 L 200 5" stroke-dasharray="10,60" class='bsec' />
         <path d="M 0 10 L 200 5" stroke-dasharray="10,60" class='bsec' />
         <path d="M 0 5 H 200" stroke-dasharray="0,10,10,50" class='bmain' />
-
       </g>
     </svg>
   </template>
   <template id='bomb'>
     <svg>
       <g>
-        <path d="M 0 0 L 50 25 M 0 50 L 50 25" class='bmain' />
+        <path d="M 0 0 H 2 L 10 20 L 15 0 H 40 A 20 20 0 0 1 40 50 H 15 L 10 30 L 0 50 Z" class='bod' />
+        <path d="M 0 0 V 50 M 5 25 H 50 M 5 15 H 46 M 5 35 H 46 M 15 5 H 40 M 15 45 H 40" class='stripes' />
+        <path d="M 5 25 L 0 5 M 5 25 L 0 45 M 5 25 L 0 25" class='bsec' />
+      </g>
+    </svg>
+  </template>
+  <template id='shrap'>
+    <svg>
+      <g>
+        <path d="M 0 25 L 0 15 L 10 5 L 15 25 L 12 25 L20 15 L 25 0 Z" class='bmain' />
+        <path d="M 0 0 L 20 15 L 10 25 L 0 25 L 25 20 L20 0 L 15 10 Z" class='bsec' />
+        <path d="M 0 0 L 20 15 L 10 25 L 0 25 L 25 20 L20 0 L 15 10 Z" class='istripes' />
       </g>
     </svg>
   </template>
   <template id='smoke'>
     <svg>
       <g>
-        <path d="M 0 0 L 50 50 M 0 50 L 50 0" class='bmain' />
+        <path d="M 0 20 A 25 25 0 1 0 0 30 Z" class='whl' />
+        <path d="M 20 20 h10 v10 H20 Z" class='stripes' />
       </g>
     </svg>
   </template>
@@ -113,20 +124,38 @@
 
 <body>
   <div id="meta">
+    <pre id=keys>
+Use [left] and [right] to control plane
+[Down] to flip over
+[A] and [Z] to control your speed
+[Space] to Fire
+[B] to Bomb
+
+Destroy all 17 enemy buildings to win.
+Land near your base to refuel and reload.
+    </pre>
+
     <div>
-      <h1>Sopwith</h1>
-      <h2>Back</h2>
+      <svg id=tit viewbox="0 0 500 100" preserveAspectRatio="xMinYMin slice">
+        <text x="20" y="60">Sopwith</text>
+        <text x="200" y="140" id=back>BACK</text>
+      </svg>
     </div>
     <div>
       <a onclick="start(0)" href='#'>
-        <h3>Sopwith Back</h3>
-        <span>Standard version of the game for Novice Players</span>
+        <h3>Sopwith Back CADET</h3>
+        <span>Learn to fly; explore the graphics modes;  bomb some targets. The AI doesn't fight back much.</span>
       </a>
+
       <a onclick="start(1)" href='#'>
-        <h3>Sopwith Back BRUTAL</h3>
-        <span>Ace pilots, no mercy, good luck</span>
+        <h3>Sopwith Back</h3>
+        <span>Standard version of the game for Novice Players.</span>
       </a>
       <a onclick="start(2)" href='#'>
+        <h3>Sopwith Back BRUTAL</h3>
+        <span>Ace pilots, full ball, no mercy. Good luck!</span>
+      </a>
+      <a onclick="start(3)" href='#'>
         <h3>Sopwith 1984</h3>
         <span>A near clone of the original 1984 version; brutal and
           fast without any fancy graphics.</span>
@@ -135,6 +164,9 @@
 
   </div>
   <div tabindex="0" id=top>
+    <div id='gmtxt'>
+    1984: CGA - 4 Colors - 320 x 200
+    </div>
     <svg viewbox="0,0,20000,2000" preserveAspectRatio="xMinYMin slice" id='world'>
     </svg>
     <svg>
@@ -152,6 +184,11 @@
           <line x1="0" y1="0" x2="20" y2="20" style="stroke:#AFA; stroke-width:5" />
           <line x1="0" y1="0" x2="10" y2="15" style="stroke:#800; stroke-width:3" />
         </pattern>
+        <filter id="blur">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10,0" result='b1'/>
+          <feOffset  in='b1' result='b2' dx=-10 dy=0 />
+          <feBlend in="SourceGraphic" in2="b2"/>
+        </filter>
       </defs>
     </svg>
     <div id="ols">
