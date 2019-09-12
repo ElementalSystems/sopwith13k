@@ -113,10 +113,10 @@ function lookAtW(x) {
     cl.toggle('y92', _wy == 92);
     cl.toggle('y04', _wy == 94);
     switch (_wy) {
-      case 84: document.getElementById('gmtxt').innerHTML="1984: CGA 4 Colours 320 x 200"; break;
-      case 88: document.getElementById('gmtxt').innerHTML="1988: EGA 16 Colours 640 x 350"; break;
-      case 92: document.getElementById('gmtxt').innerHTML="1994: SVGA 256+ Colours 800 x 600"; break;
-      case 94: document.getElementById('gmtxt').innerHTML="2004: GPU 16,777,216 Colours 1024+ x 800"; break;
+      case 84: document.getElementById('gmtxt').innerHTML="<b>1984</b> CGA 4 Colours 320 x 200"; break;
+      case 88: document.getElementById('gmtxt').innerHTML="<b>1988</b> EGA 16 Colours 640 x 350"; break;
+      case 92: document.getElementById('gmtxt').innerHTML="<b>1994</b> SVGA 256 Colours 800 x 600"; break;
+      case 94: document.getElementById('gmtxt').innerHTML="<b>2004</b> GPU 16,777,216 Colours 1024+ x 800"; break;
     }
     document.getElementById('gmtxt').classList.toggle('active',true);
     setTimeout(()=>{document.getElementById('gmtxt').classList.toggle('active',false);},3000);

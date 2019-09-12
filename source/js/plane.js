@@ -130,7 +130,7 @@ addSoDef({
       }
     },
     4: function(ft, t) { //Stalled
-      this.sp = rnd((this.spmin + this.spmax) / 2, this.spmax);
+      this.sp = rnd(this.spmin,(this.spmin + this.spmax) / 2);
       this.place(this.x + this.rdx * this.sp * ft, this.y + this.rdy * this.sp * ft, rnd(70, 120));
       if (t > this.mEnd) this.md = 1; //start flying again
     },

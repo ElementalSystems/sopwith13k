@@ -35,17 +35,20 @@ html {
   padding: 1.1em 1em .5em 1em;
   font-weight: bold;
   font-family: monospace;
-  left: 60vw;
-  right: 10vw;
+  right: -1vw;
   top: -4em;
   font-size: 3vh;
-  background: #444;
-  border: #fff solid 1px;
+  background: #222;
+  border: #F0F solid 2px;
+  color: #0CC;
   border-radius: 1vw;
   transition: top 1s; }
+  #gmtxt b {
+    color: #6FF;
+    font-size: 130%; }
 
 #gmtxt.active {
-  top: -1em; }
+  top: -.5em; }
 
 #top {
   position: relative;
@@ -416,7 +419,7 @@ div.y04 svg .whl {
   fill: rgba(192, 192, 192, 0.4); }
 div.y04 svg #land path.l3 {
   fill: url(#lgrd);
-  stroke: url(#lgrd); }
+  stroke: rgba(100, 250, 0, 0.3); }
 div.y04 svg g.enemy .bod {
   fill: url(#ebodgrd);
   stroke: url(#ebodgrd); }
