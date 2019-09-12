@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="utf-8">
+  <meta name="monetization" content="$pay.stronghold.co/1a124b62cdef2b1411e84ec1026f6cdc6e2">
   <title></title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
@@ -101,7 +102,7 @@
       <g id='land'>
         <path d="M 0 3000" class="l1" />
         <path d="M 0 3000" class="l2" />
-        <path d="M 0 3000" class="l3" fill="url(#hatch)" />
+        <path d="M 0 3000" class="l3"  />
       </g>
     </svg>
   </template>
@@ -133,7 +134,8 @@ Use [left] and [right] to control plane
 
 Destroy all 17 enemy buildings to win.
 Land near your base to refuel and reload.
-    </pre>
+
+<a href='https://en.wikipedia.org/wiki/Sopwith_(video_game)' target="_blank" >Learn more about the classic game</a></pre>
 
     <div>
       <svg id=tit viewbox="0 0 500 100" preserveAspectRatio="xMinYMin slice">
@@ -141,9 +143,9 @@ Land near your base to refuel and reload.
         <text x="200" y="140" id=back>BACK</text>
       </svg>
     </div>
-    <div>
+    <div id=gtb>
       <a onclick="start(0)" href='#'>
-        <h3>Sopwith Back CADET</h3>
+        <h3>Sopwith Back <i>CADET</i></h3>
         <span>Learn to fly; explore the graphics modes;  bomb some targets. The AI doesn't fight back much.</span>
       </a>
 
@@ -152,7 +154,7 @@ Land near your base to refuel and reload.
         <span>Standard version of the game for Novice Players.</span>
       </a>
       <a onclick="start(2)" href='#'>
-        <h3>Sopwith Back BRUTAL</h3>
+        <h3>Sopwith Back <b>BRUTAL</b></h3>
         <span>Ace pilots, full ball, no mercy. Good luck!</span>
       </a>
       <a onclick="start(3)" href='#'>
@@ -160,10 +162,15 @@ Land near your base to refuel and reload.
         <span>A near clone of the original 1984 version; brutal and
           fast without any fancy graphics.</span>
       </a>
+      <a onclick="start(4)" href='#' id='coilb'>
+        <h3>Sopwith 2019</h3>
+        <span>Fast and brutal with all Modern Graphics.<p/>
+          <b>COIL SUBSCRIBERS ONLY!</b></span>
+      </a>
     </div>
 
   </div>
-  <div tabindex="0" id=top>
+  <div tabindex="0" id=top class='y92'>
     <div id='gmtxt'>
     1984: CGA - 4 Colors - 320 x 200
     </div>
@@ -171,22 +178,62 @@ Land near your base to refuel and reload.
     </svg>
     <svg>
       <defs>
-        <linearGradient id="main">
-          <stop offset="5%" stop-color="gold" />
-          <stop offset="95%" stop-color="red" />
+        <linearGradient id="lgrd" gradientTransform="rotate(70)">
+          <stop offset="0%" stop-color="#5A0" />
+          <stop offset="10%" stop-color="#750" />
+          <stop offset="20%" stop-color="#550" />
+          <stop offset="40%" stop-color="#580" />
+          <stop offset="60%" stop-color="#500" />
+          <stop offset="80%" stop-color="#050" />
         </linearGradient>
+        <linearGradient id="bodgrd" gradientTransform="rotate(90)">
+          <stop offset="0%" stop-color="#048" />
+          <stop offset="30%" stop-color="#024" />
+          <stop offset="50%" stop-color="#0CF" />
+          <stop offset="100%" stop-color="#024" />
+        </linearGradient>
+        <linearGradient id="ebodgrd" gradientTransform="rotate(90)">
+          <stop offset="0%" stop-color="#808" />
+          <stop offset="30%" stop-color="#404" />
+          <stop offset="50%" stop-color="#F0F" />
+          <stop offset="100%" stop-color="#404" />
+        </linearGradient>
+        <linearGradient id="bldgrd" gradientTransform="rotate(90)">
+          <stop offset="20%" stop-color="#048" />
+          <stop offset="50%" stop-color="#0CF" />
+          <stop offset="80%" stop-color="#048" />
+        </linearGradient>
+        <linearGradient id="ebldgrd" gradientTransform="rotate(90)">
+          <stop offset="20%" stop-color="#808" />
+          <stop offset="50%" stop-color="#F0F" />
+          <stop offset="80%" stop-color="#808" />
+        </linearGradient>
+
+
         <mask id="dedM">
           <path d="M0 200  L 50 100 L 80 150 L130 50 L 150 180 L 180 80 L200 200 Z" fill="white" />
         </mask>
         <pattern id="hatch" width="20" height="20" patternTransform="rotate(20 0 0)" patternUnits="userSpaceOnUse">
-          <line x1="0" y1="20" x2="20" y2="0" style="stroke:#6F6; stroke-width:5" />
-          <line x1="0" y1="0" x2="0" y2="20" style="stroke:#FFF; stroke-width:5" />
-          <line x1="0" y1="0" x2="20" y2="20" style="stroke:#AFA; stroke-width:5" />
+          <line x1="0" y1="20" x2="20" y2="5" style="stroke:#6F6; stroke-width:5" />
+          <line x1="0" y1="20" x2="20" y2="10" style="stroke:#3F6; stroke-width:5" />
+          <line x1="0" y1="20" x2="20" y2="15" style="stroke:#6F3; stroke-width:5" />
+          <line x1="0" y1="20" x2="20" y2="20" style="stroke:#6F6; stroke-width:5" />
+          <line x1="5" y1="5" x2="10" y2="10" style="stroke:#AFA; stroke-width:5" />
           <line x1="0" y1="0" x2="10" y2="15" style="stroke:#800; stroke-width:3" />
         </pattern>
         <filter id="blur">
           <feGaussianBlur in="SourceGraphic" stdDeviation="10,0" result='b1'/>
           <feOffset  in='b1' result='b2' dx=-10 dy=0 />
+          <feBlend in="SourceGraphic" in2="b2"/>
+        </filter>
+        <filter id="blurs" x="-10" width="250">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10,0" result='b1'/>
+          <feOffset  in='b1' result='b2' dx=-10 dy=0 />
+          <feBlend in="SourceGraphic" in2="b2"/>
+        </filter>
+        <filter id="blurm" x="-20" width="250">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="20,0" result='b1'/>
+          <feOffset  in='b1' result='b2' dx=-20 dy=0 />
           <feBlend in="SourceGraphic" in2="b2"/>
         </filter>
       </defs>

@@ -1,8 +1,11 @@
+if (!document.monetization)
+  document.getElementById('coilb').classList.add('dis');
+
 function start(gt)
 {
-  const aisol=[-3000,0,10000,1000];
+  const aisol=[-3000,0,10000,20000,20000];
   aiso=aisol[gt];
-  forcey=(gt==3)?84:0;
+  forcey=(gt==3)?84:((gt==4)?94:0);
   document.getElementById('meta').classList.add('ded');
   attachKb(document.getElementById('top'));
   stW();

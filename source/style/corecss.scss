@@ -70,6 +70,7 @@ html {
   right:0;
   color: #FFF;
   z-index:100;
+  transition: left 1s, right 1s;
   #tit {
     filter: url('#blur');
     width: 100%;
@@ -92,43 +93,68 @@ html {
   }
 
   pre {
+    z-index: 200;
     display: block;
     position: absolute;
+    transform: rotate(10deg);
     right:0;
-    top:0;
+    top:3vh;
     margin: 1em;
     padding: 1em;
-    border: 5px ridge #999;
+    border: 5px ridge #AAA;
     color: #000;
     background: #999;
-    font-size: 2.5vh;
+    font-size: 2vh;
+    a {
+      color: #FFF;
+      font-weight: bold;
+    }
   }
 
   &.ded {
     left: -120vw;
     right: 120vw;
   }
-  a {
-    border: 3px outset #AAA;
-    border-radius: 1em;
+  #gtb {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    a {
+      border: 3px outset #AAA;
+      border-radius: 1em;
+      flex: none;
 
-    display: inline-block;
-    width: 25vw;
-    height: 25vh;
-    margin-left: 6vw;
-    text-decoration: none;
-    color: #FFF;
-    h3 {
-      text-align: center;
-      margin: .5em;
-    }
-    span {
-      display: block;
-      padding: 1em;
-      text-align: center;
+      display: inline-block;
+      width: 23vw;
+
+      height: 23vh;
+      margin: 1vh 1vw 1vh 1vw;
+      text-decoration: none;
+      color: #FFF;
+      h3 {
+        text-align: center;
+        margin: .5em;
+        b {
+          color: #F00;
+        }
+        i {
+          color: #0F0;
+        }
+      }
+      span {
+        display: block;
+        padding: 1em;
+        text-align: center;
+        b {
+          color: #F00;
+        }
+      }
+      &.dis {
+        opacity: .4;
+        pointer-events: none
+      }
     }
   }
-  transition: left 1s, right 1s;
 }
 
 #world {
@@ -260,7 +286,7 @@ svg {
     fill-opacity: 1;
     stroke-width: 5;
     stroke: #0F0;
-    stroke-dasharray: 5,8,2,6,1,4,3,8
+    fill: url(#hatch);
   }
 
   .bmain {
@@ -560,6 +586,63 @@ div.y88 {
       .ibod {
         stroke: none;
         fill: #317;
+      }
+    }
+  }
+}
+
+
+div.y04 {
+  #ols {
+    background: linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.8));
+    div.ob {
+      border: #rgba(200,200,200,.5) 3px ridge;
+    }
+  }
+
+  svg {
+
+    g.plane.b1 {
+      filter: url('#blurs');
+    }
+    g.bullet,  g.shrap, g.bomb, g.plane.b2 {
+      filter: url('#blurm');
+    }
+
+    .bod {
+      fill: url(#bodgrd);
+      stroke: url(#bodgrd);
+    }
+
+    .bld {
+      fill: url(#bldgrd);
+      stroke: url(#bldgrd);
+    }
+
+    .whl {
+      stroke: rgba(255,255,255,.8);
+      stroke-width: 5;
+      fill: rgba(192,192,192,.4);
+    }
+
+
+    #land path.l3 {
+      fill: url(#lgrd);
+      stroke: url(#lgrd);
+    }
+
+    g.enemy {
+      .bod {
+        fill: url(#ebodgrd);
+        stroke: url(#ebodgrd);
+      }
+
+      .bld {
+        fill: url(#ebldgrd);
+        stroke: url(#ebldgrd);
+      }
+
+      .ibod {
       }
     }
   }

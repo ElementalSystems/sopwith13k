@@ -3,7 +3,7 @@ addSoDef({
   w: 200,
   h: 100,
   sp: .8, //speed in units / ms
-  spmax: 1.2, //max speed
+  spmax: 1.5, //max speed
   spmin: .5, //min speed
   spdir: 0, //direction to change speed
   acc: .001, //change to speed per ms
@@ -30,7 +30,6 @@ addSoDef({
 
   tick: function(ft, t) {
     this.tickM[this.md].bind(this)(ft, t);
-
     if (this.md != 3) { //check for world collisions at my new spot
       var col = tColW(this, this.pX(-this.w / 3, 0), this.pY(-this.w / 3, 0), this.pX(+this.w / 3, 0), this.pY(+this.w / 3, 0));
       if (col) {
@@ -40,6 +39,7 @@ addSoDef({
           this.ded=true;
           _pp.score+=this.scv;
           this.lCnt-=1;
+          this.sp=0;
           if (this!=_pp) this.mEnd+=5000; //not the player dies for ages
           if (!this.lCnt) {
             this.mEnd+=10000;
@@ -54,6 +54,9 @@ addSoDef({
         }
       }
     }
+    //set plane blur level
+    this.e.classList.toggle('b1',(this.sp>.7)&&(this.sp<1.1));
+    this.e.classList.toggle('b2',(this.sp>=1.1));
   },
 
   tickM: { //tick function by mode
@@ -61,10 +64,11 @@ addSoDef({
       this.pilot(ft,t);
       this.bCnt=5;
       this.fCnt=this.gCnt=99;
-      this.sp=.8;
       this.ded=false;
+      this.sp=0;
       if ((this.rotdir < 0) || (this.spdir)) {// take off!
         this.md = 1;
+        this.sp=.7;
         this.nextLand=t+3000;
       }
     },
