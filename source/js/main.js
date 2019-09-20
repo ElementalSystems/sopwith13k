@@ -1,5 +1,3 @@
-if (!document.monetization)
-  document.getElementById('coilb').classList.add('dis');
 
 function start(gt)
 {
