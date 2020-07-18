@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "author": "elementalsystems",
   "dependencies": {
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "mem": "^5.1.1",
     "mime": "^2.4.4",
     "open": "^6.4.0"
