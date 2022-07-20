@@ -19,7 +19,7 @@
     "grunt-open": "^0.2.4",
     "grunt-terser": "^0.1.0",
     "remove": "^0.1.5",
-    "terser": "^4.2.1"
+    "terser": "^4.8.1"
   },
   "description": "Simple set up for a js13k games entry with mobile boilerplate and  develop and release grunt tasks",
   "main": "Gruntfile.js",
